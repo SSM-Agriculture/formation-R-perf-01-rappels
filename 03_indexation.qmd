@@ -1,0 +1,41 @@
+---
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+# Indexation d'objets avec R {.backgroundTitre}
+
+## Vecteur, indexation avec les crochets: 
+
+-   Indexation par position :
+
+`x ← c(''Marion'', ''Benjamin'', ''Hélène'', ''Raymond''))`
+
+`x[1] renvoie ''Marion''`
+
+`x[c(1, 2)] renvoie le vecteur c(''Marion'', ''Benjamin'')`
+
+-   Indexation par condition logique :
+
+`x ← c(8.04, 18.01, 11.05, 14.05)`
+
+`x[x < 10] renvoie 8.04`
+
+`x[x > 10] renvoie le vecteur c(18.01, 11.05, 14.05)`
+
+`x[x >10 & x < 15] renvoie le vecteur c(11.05, 14.05)`
+
+## Matrices et arrays,indexation avec les crochets: 
+
+Indexation par position :
+
+`x ← matrix(c(''Marion'', ''Benjamin'', ''Hélène'', ''Raymond''), nrow = 2, ncol = 2)`
+
+`x[1, ] renvoie le vecteur c(''Marion'', ''Hélène'')`
+
+`x[, 2] renvoie le vecteur c(''Hélène'', ''Raymond'')`
+
+`x[2, 1] renvoie ''Benjamin''`
+
+![](images/clipboard-3022598537.png){width="264"}

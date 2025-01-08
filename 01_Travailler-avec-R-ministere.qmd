@@ -1,0 +1,74 @@
+## Travailler avec R au ministère {.backgroundTitre}
+
+Logiciel de traitement de données et analyse statistique :
+
+-   offre un environnement interactif de développement statistique, analytique et graphique ;
+
+-   est doté d’un langage de programmation R ;
+
+-   permet d’accéder à des données, de les manipuler et les analyser ;
+
+-   S'interface avec les bases de données : Oracle, SYBASE, PostgreSQL, SQLITE…
+
+Remplace SAS ou SPSS
+
+Logiciel IDE : Integrated Development Environment
+
+## Pourquoi utiliser R
+
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+
+| Avantages                                                                      | **Inconvénients**                                                           |
++================================================================================+=============================================================================+
+| -   logiciel gratuit et open source                                            | -   Langage informatique nouveau à appréhender                              |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+
+| -   développement actif : communauté d’utilisateurs de plus en plus importante | -   pas de génération de code par « clic-bouton »                           |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+
+| -   nombreux packages (« outils ») scientifiques                               | -   compatibilité des versions                                              |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+
+| -   très bonnes capacités graphiques                                           | -   calculs sur de grosses volumétries plus « gourmand » en CPUs et Mémoire |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+
+| -   rapidité des traitements (R travaille en mémoire)                          | -   documentation et aide souvent disponibles qu'en anglais                 |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+
+
+## Comment travailler avec R au MASA ?
+
+Depuis la plate-forme **CERISE** :
+
+-   ⇒ Adresse : <https://rstudio.agriculture.rie.gouv.fr>
+
+-   ⇒ PISTACHE : Pistache \> Traitements statistiques et Diffusion \> R \> Migration SPSS et SAS vers R \> Accès au WIKI Cerise - R \> Accéder à Cerise
+
+![](images/clipboard-3909638494.png)
+
+En **local sur son poste**, sans intervention de Pastel
+
+![](images/clipboard-3032060665.png){fig-align="center" width="358"}
+
+Existence d'une plate-forme CERISE de **Préproduction** :\
+<https://rstudio-pprd.agriculture.rie.gouv.fr>
+
+## Fenêtres dans RSTUDIO
+
+![](images/clipboard-2886638445.png)
+
+![](images/clipboard-2489179024.png)
+
+![](images/clipboard-3553625632.png)
+
+![](images/clipboard-1749613597.png)
+
+![](images/clipboard-2489179024.png)
+
+## Organisation sous CERISE
+
+Cerise est organisé en plusieurs répertoires :
+
+-   **00-Espace-Personnel** =\> espaces personnels des agents, **accessible par l’agent uniquement**
+
+-   **01-Espace-de-Partage** =\> lieu de partage général entre les différents acteurs
+
+-   **02-Espace-de-Production** =\> plateforme de stockage des données brutes collectées, ainsi que des fichiers de données et programmes issus des traitements statistiques réalisés par l'équipe projet
+
+-   **03-Espace-de-Diffusion** =\> mise à disposition au sein du SSM des données issues des traitements statistiques réalisés en amont =\> Ces deux derniers espaces sont découpés par opérations statistiques
+
+-   **04-Espace-Echanges** =\> stockage des fichiers de données à transmettre aux autres applications du SI CASSIS (par exemple Agreste) ainsi qu'aux SI des partenaires extérieurs
