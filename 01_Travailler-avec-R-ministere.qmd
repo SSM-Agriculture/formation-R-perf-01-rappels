@@ -40,11 +40,11 @@ Depuis la plate-forme **CERISE** :
 
 -   ⇒ PISTACHE : Pistache \> Traitements statistiques et Diffusion \> R \> Migration SPSS et SAS vers R \> Accès au WIKI Cerise - R \> Accéder à Cerise
 
-![](img/clipboard-3909638494.png)
+![](img/clipboard-travailler1.png)
 
 En **local sur son poste**, sans intervention de Pastel
 
-![](img/clipboard-3032060665.png){fig-align="center"}
+![](img/clipboard-preco.png){fig-align="center"}
 
 Existence d'une plate-forme CERISE de **Préproduction** :\
 <https://rstudio-pprd.agriculture.rie.gouv.fr>
@@ -55,7 +55,7 @@ Existence d'une plate-forme CERISE de **Préproduction** :\
 
 ![](img/clipboard-2489179024.png){fig-align="left"}
 
-![](img/clipboard-3553625632.png){fig-align="center"}
+![](img/clipboard-console.png){fig-align="center"}
 
 ![](img/clipboard-1749613597.png){fig-align="right"}
 

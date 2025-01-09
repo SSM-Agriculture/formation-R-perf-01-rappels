@@ -20,7 +20,7 @@ Fonctions utiles :
 -   *dim()* renvoie un vecteur composé du nombre de lignes et du nombre
     de colonnes de la table
 
-![](img/clipboard-3447668714.png)
+![](img/clipboard-tab1.png)
 
 ## Manipulation de données
 
@@ -37,7 +37,7 @@ Fonctions utiles :
 
 |  |  |
 |----|:---|
-| ![](img/cli%20pboard-2855%20112490.png) | 2 packages à charger en début de programme |
+| ![](im%20g/clipboard-a%20ttention.png) | 2 packages à charger en début de programme |
 
 -   Objectif de dplyr : rassembler dans un seul package les outils de
     manipulation de données les plus importants pour l’analyse des
@@ -58,7 +58,7 @@ Fonctions utiles :
 
 |  |  |
 |----|----|
-| ![](img/clipboard-2%20%20197682570.png){fig-align="left"} | ![](img/clipboard-3%20%20237552811.png){fig-align="right" width="202"} |
+| ! [ ](img/clipboard-pipe1.png) | ![](img/clipbo%20ard-pipe2.png){width="199"} |
 
 ## Filtre et sélection dans une table
 
@@ -72,7 +72,7 @@ Fonctions utiles :
 
 `ma_table[1,4] : Première observation de la 4e variable`
 
-![](img/clipboard-4163323803.png)
+![](img/clipboard-filtre1.png)
 
 -   Avec le package **dplyr** :
 
@@ -90,7 +90,7 @@ Fonctions utiles :
 
 `ma_table %>% filter(Age < 30) %>% select(Nom_prenom)`
 
-![](img/clipboard-1527811867.png)
+![](img/clipboard-filtre2.png)
 
 ## Création ou modification de variables dans une table
 
@@ -134,7 +134,7 @@ Fonctions utiles :
 
 ## Fonctions utiles au traitement des chaînes de caractères
 
-![](img/clipboard-1108142376.png)
+![](img/clipboard-recap-fonctions.png)
 
 ## Tri dans une table
 
@@ -154,11 +154,11 @@ fonction *desc()*.
 -   Pour fusionner deux tables en utilisant une ou plusieurs variables
     de jointure, on utilise les fonctions ***XXX_join()***
 
-![](img/clipboard-242505726.png)
+![](img/clipboard-join.png)
 
 ## Joindre des tables avec une variable de jointure
 
-![](img/clipboard-3067962189.png)
+![](img/clipboard-ex-jointure.png)
 
 ## Fusion de tables
 
@@ -201,12 +201,13 @@ min, mean, sd, n…
     et **pivot_longer()** du package tidyr.
 
 +----------------------------------+----------------------------------+
-| ! [                              | ! [                              |
-| ](img/clipboard-3953707880.png)  | ](img/clipboard-2201196631.png)  |
+| ![](                             | ![](i                            |
+| im%20g/clipboard-pivotwider.png) | mg%20/clipboard-pivotlonger.png) |
 +----------------------------------+----------------------------------+
-| `maTable %>% pivot_wid           | `maTable %>% pivot_longer(vari a |
-| er(col_de_noms, col_de_valeurs)` | bles_a_pivoter, names_to = "ind  |
-|                                  | icateur", values_to = "valeur")` |
+| `m aTa ble %>% pivot_wid e r (   | `ma Table  %>%                   |
+|  c o l_de_noms, col_de_valeurs)` |  pivot _long er(vari abl es_ a_p |
+|                                  |  ivo ter , names_to = "ind i c a |
+|                                  |  t e ur", values_to = "valeur")` |
 +----------------------------------+----------------------------------+
 | **col_de_noms** = nom de la      | **variables_a_pivoter** = nom de |
 | variable dont les modalités      | l'ensemble des variables à       |
