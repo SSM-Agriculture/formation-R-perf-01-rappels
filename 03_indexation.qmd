@@ -6,9 +6,9 @@ editor:
 
 # Indexation d'objets avec R {.backgroundTitre}
 
-## Vecteur, indexation avec les crochets: 
+## Vecteur, indexation avec les crochets:
 
--   Indexation par position :
+-   Indexation **par position** :
 
 `x ← c(''Marion'', ''Benjamin'', ''Hélène'', ''Raymond''))`
 
@@ -16,7 +16,7 @@ editor:
 
 `x[c(1, 2)] renvoie le vecteur c(''Marion'', ''Benjamin'')`
 
--   Indexation par condition logique :
+-   Indexation **par condition logique** :
 
 `x ← c(8.04, 18.01, 11.05, 14.05)`
 
@@ -26,16 +26,49 @@ editor:
 
 `x[x >10 & x < 15] renvoie le vecteur c(11.05, 14.05)`
 
-## Matrices et arrays,indexation avec les crochets: 
+## Matrices et arrays,indexation avec les crochets:
 
-Indexation par position :
+Indexation **par position** :
 
 `x ← matrix(c(''Marion'', ''Benjamin'', ''Hélène'', ''Raymond''), nrow = 2, ncol = 2)`
 
-`x[1, ] renvoie le vecteur c(''Marion'', ''Hélène'')`
+`x[1,] renvoie le vecteur c(''Marion'', ''Hélène'')`
 
-`x[, 2] renvoie le vecteur c(''Hélène'', ''Raymond'')`
+`x[,2] renvoie le vecteur c(''Hélène'', ''Raymond'')`
 
-`x[2, 1] renvoie ''Benjamin''`
+`x[2,1] renvoie ''Benjamin''`
 
-![](images/clipboard-3022598537.png){width="264"}
+![](img/clipboard-3022598537.png){fig-align="center" width="291"}
+
+## Listes :
+
+-   Indexation **par position** :
+
+x ← list(c(TRUE, TRUE, FALSE), c(8.04, 18.01, 11.05, 14.05), "804")
+
+`x[[2]] renvoie le deuxième vecteur de la liste x soit c(8.04, 18.01, 11.05, 14.05)`
+
+`x[[2]][1] renvoie le premier élément du deuxième vecteur de la liste x soit 8.04`
+
+-   Indexation **par nom** si les vecteurs sont nommés avec l'opérateur
+    \$ :
+
+`x ← list(grp = c(''Auguste'', ''Justine'', ''Sébastien'', ''Anne-Marie''), prt = c(''Hélène'', ''Raymond''), enf = c(''Marion", ''Benjamin'')`
+
+`x$grp renvoie le vecteur nommé ''grp'' de la liste x soit c(''Auguste'', ''Justine'', ''Sébastien'', ''Anne-Marie'')`
+
+`x$enf[1] renvoie le premier élément du vecteur nommé ''enf'' de la liste x soit ''Marion''`
+
+## Data.frame :
+
+-   Indexation **par position** : comme pour les matrices
+
+-   Indexation **par nom** : les vecteurs d'une data.frame sont nommés
+    et accessibles directement dans les crochets ou via l'opérateur \$
+
+-   Les moyens d'indexation peuvent se combiner
+
+→ Il y a donc une multitude de façons d'accéder à une valeur dans un
+data.frame !
+
+![](img/clipboard-3408078912.png)\

@@ -1,6 +1,6 @@
 # Travailler avec R au ministère {.backgroundTitre}
 
-## Présentation  {.backgroundTitre}
+## Présentation {.backgroundTitre}
 
 Logiciel de traitement de données et analyse statistique :
 
@@ -20,7 +20,7 @@ Logiciel IDE : Integrated Development Environment
 
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+
 | Avantages                                                                      | **Inconvénients**                                                           |
-+================================================================================+=============================================================================+
++:===============================================================================+:============================================================================+
 | -   logiciel gratuit et open source                                            | -   Langage informatique nouveau à appréhender                              |
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+
 | -   développement actif : communauté d’utilisateurs de plus en plus importante | -   pas de génération de code par « clic-bouton »                           |
@@ -40,26 +40,26 @@ Depuis la plate-forme **CERISE** :
 
 -   ⇒ PISTACHE : Pistache \> Traitements statistiques et Diffusion \> R \> Migration SPSS et SAS vers R \> Accès au WIKI Cerise - R \> Accéder à Cerise
 
-![](images/clipboard-3909638494.png)
+![](img/clipboard-3909638494.png)
 
 En **local sur son poste**, sans intervention de Pastel
 
-![](images/clipboard-3032060665.png){fig-align="center" width="358"}
+![](img/clipboard-3032060665.png){fig-align="center"}
 
 Existence d'une plate-forme CERISE de **Préproduction** :\
 <https://rstudio-pprd.agriculture.rie.gouv.fr>
 
 ## Fenêtres dans RSTUDIO
 
-![](images/clipboard-2886638445.png)
+![](img/clipboard-2886638445.png){fig-align="left"}
 
-![](images/clipboard-2489179024.png)
+![](img/clipboard-2489179024.png){fig-align="left"}
 
-![](images/clipboard-3553625632.png)
+![](img/clipboard-3553625632.png){fig-align="center"}
 
-![](images/clipboard-1749613597.png)
+![](img/clipboard-1749613597.png){fig-align="right"}
 
-![](images/clipboard-2489179024.png)
+![](img/clipboard-2489179024.png){fig-align="right"}
 
 ## Organisation sous CERISE
 

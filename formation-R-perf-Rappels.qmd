@@ -36,7 +36,7 @@ visuel des formations dispensées au
 Ces formations s'adressent à des agents **qui ont suivi la formation R
 initialisation**.\
 Elles sont données en présentiel sur une durée **de trois journée**, les
-modulesde cette formation sont ajustables suivants le choix des agents.
+modules de cette formation sont ajustables suivants le choix des agents.
 
 ::: callout-note
 ## Champ couvert par cette formation
@@ -73,8 +73,4 @@ RStudio Workbench.
 
 {{< include 03_indexation.qmd >}}
 
-<!-- {{< include 04_travaillerforge.qmd >}} -->
-
-<!-- {{< include 05_branches.qmd >}} -->
-
-<!-- {{< include 06_bibliographie.qmd >}} -->
+{{< include 04_traitement-de-donnees.qmd >}}

@@ -6,7 +6,7 @@ editor:
 
 # Les différents objets R {.backgroundTitre}
 
-## Les vecteurs : 
+## Les vecteurs :
 
 -   Objet élémentaire de R, une dimension
 
@@ -40,7 +40,7 @@ organisés en plusieurs dimensions.
 
 -   Fonctions utiles : dim(), nrow(), ncol()
 
-## Les listes et data.frame : 
+## Les listes et data.frame :
 
 -   Une **data.frame** est composée de vecteurs nommés de tailles égales
     mais pouvant être de types différents.
