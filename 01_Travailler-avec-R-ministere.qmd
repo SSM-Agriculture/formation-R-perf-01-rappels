@@ -51,15 +51,7 @@ Existence d'une plate-forme CERISE de **Préproduction** :\
 
 ## Fenêtres dans RSTUDIO
 
-![](img/clipboard-2886638445.png){fig-align="left"}
-
-![](img/clipboard-2489179024.png){fig-align="left"}
-
 ![](img/clipboard-console.png){fig-align="center"}
-
-![](img/clipboard-1749613597.png){fig-align="right"}
-
-![](img/clipboard-2489179024.png){fig-align="right"}
 
 ## Organisation sous CERISE
 
