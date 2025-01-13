@@ -47,4 +47,4 @@ Le mode export PDF est activé quand le support passe en navigation verticale (s
 ## Déploiement du support de formation
 
 Ce diaporama est déployé sur la branche `gh-pages` avec la commande suivante :  
-`quarto publish gh-pages formation-git.qmd`
+`quarto publish gh-pages formation-R-perf-Rappels.qmd`

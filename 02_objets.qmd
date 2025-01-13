@@ -49,7 +49,11 @@ organisés en plusieurs dimensions.
 
 -   Création avec les fonctions list() et data.frame() :
 
-`x ← list(c(TRUE, TRUE, FALSE),       1er élément : un vecteur de trois booléens     c(8.04, 18.01, 11.05, 14.05),         2e élément : un vecteur de quatre numériques "804")                                            3e élément : un vecteur d'une chaîne de caractères`
+`x ← list(c(TRUE, TRUE, FALSE),   1er élément : un vecteur de trois booléens`
+
+`c(8.04, 18.01, 11.05, 14.05),    2e élément : un vecteur de quatre numériques`
+
+`"804")                           3e élément : un vecteur d'une chaîne de caractères`
 
 `x ← data.frame(nom=c("Yaël","Luan","Jade"), 1er élément : un vecteur « nom » de trois chaînes de caractères`
 

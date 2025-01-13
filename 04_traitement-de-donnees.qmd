@@ -35,9 +35,12 @@ Fonctions utiles :
 
 ## Outils DPLYR & TIDYR
 
-|  |  |
-|----|:---|
-| ![](im%20g/clipboard-a%20ttention.png) | 2 packages à charger en début de programme |
++----------------+:---------------------------------------------------+
+| ![             | 2 packages à charger en début de programme         |
+| ](img/clipboar |                                                    |
+| d-attention.pn |                                                    |
+| g){width="46"} |                                                    |
++----------------+----------------------------------------------------+
 
 -   Objectif de dplyr : rassembler dans un seul package les outils de
     manipulation de données les plus importants pour l’analyse des
@@ -53,14 +56,15 @@ Fonctions utiles :
         laquelle on travaille.
 
     -   **Usage de l'opérateur pipe** (issu du package magrittr) Dans
-        R-Studio, le raccourci clavier pour cet opérateur est : Ctrl +
-        Shift + M
+        R-Studio, le raccourci clavier pour cet opérateur est : **Ctrl +
+        Shift + M**
 
-|  |  |
-|----|----|
-| ! [ ](img/clipboard-pipe1.png) | ![](img/clipbo%20ard-pipe2.png){width="199"} |
++----------------------------------+----------------------------------+
+| ![](img/clipboard-pipe1.png)     | ![](img/c                        |
+|                                  | lipboard-pipe2.png){width="190"} |
++----------------------------------+----------------------------------+
 
-## Filtre et sélection dans une table
+## Filtre et sélection dans une table 1/2
 
 -   **Avec R** de base, on utilise les techniques d'indexation
 
@@ -73,6 +77,8 @@ Fonctions utiles :
 `ma_table[1,4] : Première observation de la 4e variable`
 
 ![](img/clipboard-filtre1.png)
+
+## Filtre et sélection dans une table 2/2
 
 -   Avec le package **dplyr** :
 
@@ -200,36 +206,63 @@ min, mean, sd, n…
     colonnes ou inversement, on utilise les fonctions **pivot_wider()**
     et **pivot_longer()** du package tidyr.
 
-+----------------------------------+----------------------------------+
-| ![](                             | ![](i                            |
-| im%20g/clipboard-pivotwider.png) | mg%20/clipboard-pivotlonger.png) |
-+----------------------------------+----------------------------------+
-| `m aTa ble %>% pivot_wid e r (   | `ma Table  %>%                   |
-|  c o l_de_noms, col_de_valeurs)` |  pivot _long er(vari abl es_ a_p |
-|                                  |  ivo ter , names_to = "ind i c a |
-|                                  |  t e ur", values_to = "valeur")` |
-+----------------------------------+----------------------------------+
-| **col_de_noms** = nom de la      | **variables_a_pivoter** = nom de |
-| variable dont les modalités      | l'ensemble des variables à       |
-| deviendront les intitulés de     | représenter                      |
-| colonne                          |                                  |
-|                                  | **names_to** = nom de la         |
-| **col_de_valeurs** = nom de la   | première colonne à créer         |
-| variable à utiliser pour remplir |                                  |
-| les colonnes                     | **values_to** = nom de la        |
-|                                  | deuxième colonne à créer         |
-+----------------------------------+----------------------------------+
++---------------------------------+---------------------------------+
+| ![](i                           | ![](i%20m                       |
+| m%20g/clipboard-pivotwider.png) | g%20/clipboard-pivotlonger.png) |
++---------------------------------+---------------------------------+
+| `                               | `ma Table  %>%  pivo            |
+| m aTa ble %>% pivot_wid e r (   | t _long er(vari abl es_ a_p  iv |
+| c o l_de_noms, col_de_valeurs)` | o ter , names_to = "ind i c a   |
+|                                 | t e ur", values_to = "valeur")` |
++---------------------------------+---------------------------------+
+| **col_de_noms** = nom de la     | **variables_a_pivoter** = nom   |
+| variable dont les modalités     | de l'ensemble des variables à   |
+| deviendront les intitulés de    | représenter                     |
+| colonne                         |                                 |
+|                                 | **names_to** = nom de la        |
+| **col_de_valeurs** = nom de la  | première colonne à créer        |
+| variable à utiliser pour        |                                 |
+| remplir les colonnes            | **values_to** = nom de la       |
+|                                 | deuxième colonne à créer        |
++---------------------------------+---------------------------------+
 
 ## Lecture/ Ecriture de fichiers
 
-| Type | Lecture | Ecriture |
-|----|----|----|
-| Texte | la fonction reader::read_delim et ses dérivées read_csv, read_csv2, read_tsv, read_fwf | la fonction readr::write_delim et ses dérivées write_csv, write_csv2… |
-| RDS | Fonction read_rds | Fonction readr::write_rds |
-| XLS | les fonctions du package readxl | les fonctions du package openxlsx |
-| SAS ou SPSS | les fonctions read_sas et read_spss du package haven. Attention : il vaut mieux exporter au format texte dans le logiciel d'origine pour le lire en tant que données texte dans R. | il vaut mieux exporter au format texte et lire le fichier dans le logiciel d'origine en tant que fichier au format texte ! |
-| ODS | la fonction read_ods du package readODS | la fonction write_ods du package readODS |
-| Parquet | Le package `arrow` et `dplyr` | Le package [`arrow`](#0) et `dplyr` |
++----------------------+----------------------+----------------------+
+| Type                 | Lecture              | Ecriture             |
++======================+======================+======================+
+| Texte                | la fonction          | la fonction          |
+|                      | reader::read_delim   | readr::write_delim   |
+|                      | et ses dérivées      | et ses dérivées      |
+|                      | read_csv, read_csv2, | write_csv,           |
+|                      | read_tsv, read_fwf   | write_csv2…          |
++----------------------+----------------------+----------------------+
+| RDS                  | Fonction read_rds    | Fonction             |
+|                      |                      | readr::write_rds     |
++----------------------+----------------------+----------------------+
+| XLS                  | les fonctions du     | les fonctions du     |
+|                      | package readxl       | package openxlsx     |
++----------------------+----------------------+----------------------+
+| SAS ou SPSS          | les fonctions        | il vaut mieux        |
+|                      | read_sas et          | exporter au format   |
+|                      | read_spss du package | texte et lire le     |
+|                      | haven. Attention :   | fichier dans le      |
+|                      | il vaut mieux        | logiciel d'origine   |
+|                      | exporter au format   | en tant que fichier  |
+|                      | texte dans le        | au format texte !    |
+|                      | logiciel d'origine   |                      |
+|                      | pour le lire en tant |                      |
+|                      | que données texte    |                      |
+|                      | dans R.              |                      |
++----------------------+----------------------+----------------------+
+| ODS                  | la fonction read_ods | la fonction          |
+|                      | du package readODS   | write_ods du package |
+|                      |                      | readODS              |
++----------------------+----------------------+----------------------+
+| Parquet              | Le package `arrow`   | Le package           |
+|                      | et `dplyr`           | [`arrow`](#0) et     |
+|                      |                      | `dplyr`              |
++----------------------+----------------------+----------------------+
 
 ## Base de données avec R
 

@@ -33,8 +33,11 @@ Ce diaporama de formation a été rédigé dans le but d'être le support
 visuel des formations dispensées au
 [MASA](https://agreste.agriculture.gouv.fr/).
 
-Ces formations s'adressent à des agents **qui ont suivi la formation R
+Ces formations s'adressent à des agents qui ont suivi **la formation R
 initialisation**.\
+
+## Avant-propos
+
 Elles sont données en présentiel sur une durée **de trois journée**, les
 modules de cette formation sont ajustables suivants le choix des agents.
 
@@ -60,8 +63,8 @@ Pour information, Les Modules de la formation R-perfectionnement sont:
 
 -   07 - Module Initiation à l'écriture d'applications Shiny
 
-Ils sont orientés pour être utile aux agents du SSM MASA et se concentre
-donc sur une utilisation de R via
+Ils sont orientés pour être utile aux agents du SSM MASA et se
+concentrent sur une utilisation de R via
 [RStudio](https://posit.co/download/rstudio-desktop/) qui est mise à
 disposition des agents sur la plateforme interne Cerise basée sur
 RStudio Workbench.
