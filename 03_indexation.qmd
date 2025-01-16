@@ -71,4 +71,4 @@ x ← list(c(TRUE, TRUE, FALSE), c(8.04, 18.01, 11.05, 14.05), "804")
 → Il y a donc une multitude de façons d'accéder à une valeur dans un
 data.frame !
 
-![](img//clipboard-premon-sexe-taille.png)\
+![](img/clipboard-premon-sexe-taille.png)\
