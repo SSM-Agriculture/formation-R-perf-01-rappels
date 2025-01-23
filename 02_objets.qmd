@@ -54,7 +54,7 @@ matrix(c(1,2,3,4,5,6), nrow = 2, ncol = 3)
 
 -   Création avec les fonctions `data.frame()` et `list()` :
 
-```r
+```{.r}
 x ← list(c(TRUE, TRUE, FALSE),           # 1er élément : un vecteur de trois booléens
          c(8.04, 18.01, 11.05, 14.05),   # 2e élément : un vecteur de quatre numériques
          c(""804"))                      # 3e élément : un vecteur d'une chaîne de caractères
