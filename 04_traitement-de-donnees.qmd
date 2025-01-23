@@ -24,27 +24,27 @@ Fonctions utiles :
 
 ## Manipulation de données
 
+<br>
+
 -   La partie *Manipulation de données* va fournir les outils
     nécessaires aux traitements classiques à opérer sur une table de
     données.
 
--   A part pour la lecture et l’écriture de fichiers, les outils
+-   À part pour la lecture et l’écriture de fichiers, les outils
     proposés relèvent des packages **dplyr** et **tidyr** : ils sont
-    d’un usage plus aisé que les outils R de base et couvrent beaucoup
+    d’un usage plus simple que les outils R de base et couvrent beaucoup
     des fonctionnalités les plus courantes.
 
 ## Outils DPLYR & TIDYR
-
-![](img/clipboard-attention.png)
 
 -   Objectif de dplyr : rassembler dans un seul package les outils de
     manipulation de données les plus importants pour l’analyse des
     données
 
-    -   ⇒ ensemble de fonctions correspondant à un ensemble d’opérations
-        élémentaires
+    ⇒ ensemble de fonctions correspondant à un ensemble d’opérations
+      élémentaires
 
--   Deux principes pour les packages *tidyr* et *dplyr* :
+-   Deux principes pour les packages *tidyr* et *dplyr* :
 
     -   **Usage de fonctions « verbe »** toutes construites sur le même
         principe : le premier paramètre est la table de données sur
@@ -54,9 +54,20 @@ Fonctions utiles :
         R-Studio, le raccourci clavier pour cet opérateur est : **Ctrl +
         Shift + M**
 
-+------------------------------+------------------------------+
-| ![](img/clipboard-pipe1.png) | ![](img/clipboard-pipe2.png) |
-+------------------------------+------------------------------+
+
+::: columns
+::: {.column width="50%"}
+
+![](img/clipboard-pipe1.png)
+:::
+
+::: {.column width="50%"}
+
+![](img/clipboard-pipe2.png)
+
+:::
+
+::::
 
 ## Filtre et sélection dans une table 1/2
 
