@@ -32,11 +32,16 @@ editor:
 Une array est composée d'un ou de plusieurs éléments de mêmes types,
 organisés en plusieurs dimensions.
 
--   Création avec les fonctions matrix et array :
+-   Création de matrice avec la fonction matrix() :
 
-`x ← matrix(c(1,2,3,4,5,6), nrow = 2, ncol = 3) création d'une matrice de numériques avec deux lignes et trois colonnes, remplissage par colonne.`
+```{.r}
+# Création d'une matrice de numériques avec deux lignes et trois colonnes, remplissage par colonne.`
+matrix(c(1,2,3,4,5,6), nrow = 2, ncol = 3) 
 
-`x ← array (c(1,2,3,4,5,6,7,8), dim=c(2,2,2)) création d'une array de numériques avec trois dimensions, chaque dimension comprenant deux éléments (~ cube)`
+#      [,1] [,2] [,3]
+# [1,]    1    3    5
+# [2,]    2    4    6
+```
 
 -   Fonctions utiles : dim(), nrow(), ncol()
 
@@ -47,16 +52,15 @@ organisés en plusieurs dimensions.
 
 -   Une **liste** est composée d'objets différents.
 
--   Création avec les fonctions list() et data.frame() :
+-   Création avec les fonctions `data.frame()` et `list()` :
 
-`x ← list(c(TRUE, TRUE, FALSE),   1er élément : un vecteur de trois booléens`
-
-`c(8.04, 18.01, 11.05, 14.05),    2e élément : un vecteur de quatre numériques`
-
-`"804")                           3e élément : un vecteur d'une chaîne de caractères`
-
-`x ← data.frame(nom=c("Yaël","Luan","Jade"), 1er élément : un vecteur « nom » de trois chaînes de caractères`
-
-`sexe = factor(c("H","F","F"), 2e élément : un vecteur « sexe » de trois chaînes de caractères`
-
-`age = c(5,1,3))                    3e élément : un vecteur « age » de trois numériques`
+```r
+x ← list(c(TRUE, TRUE, FALSE),           # 1er élément : un vecteur de trois booléens
+         c(8.04, 18.01, 11.05, 14.05),   # 2e élément : un vecteur de quatre numériques
+         c(""804"))                      # 3e élément : un vecteur d'une chaîne de caractères
+         
+`x ← data.frame(nom=c("Yaël","Luan","Jade"),  # 1er élément : un vecteur « nom » de trois chaînes de caractères`
+                sexe = factor(c("H","F","F"), # 2e élément : un vecteur « sexe » de trois chaînes de caractères (en facteurs)
+                age = c(5,1,3))               # 3e élément : un vecteur « age » de trois numériques 
+                
+```
