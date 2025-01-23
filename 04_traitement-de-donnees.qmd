@@ -215,13 +215,17 @@ l'argument `drop = FALSE`)
 
 ## Transposition ou réorganisation de table
 
+<br>
+
 Pour réorganiser une table, c'est à dire passer des lignes en
 colonnes ou inversement, on utilise les fonctions `pivot_wider()` 
 et `pivot_longer()` du package tidyr.
 
 ## Pivot_wider()
 
-![](img/clipboard-pivotwider.png)
+<br>
+
+![](img/clipboard-pivotwider.png){fig-align="center"}
 <br>
 
 `maTable %>% pivot_wider(col_de_noms, col_de_valeurs)`
@@ -232,7 +236,9 @@ et `pivot_longer()` du package tidyr.
 
 ## Pivot_longer()
 
-![](img/clipboard-pivotlonger.png)
+<br>
+
+![](img/clipboard-pivotlonger.png){fig-align="center"}
 <br>
 
 `maTable %>% pivot_longer( variables_apivoter , names_to = "indicateur", values_to = "valeur")`
