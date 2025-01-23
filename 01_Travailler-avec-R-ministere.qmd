@@ -1,6 +1,6 @@
 # Travailler avec R au ministère {.backgroundTitre}
 
-## Présentation {.backgroundTitre}
+## Présentation
 
 Logiciel de traitement de données et analyse statistique :
 
