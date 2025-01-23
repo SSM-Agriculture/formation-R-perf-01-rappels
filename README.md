@@ -9,13 +9,13 @@ Les corrections des exercices ainsi que d'autres ressources complémentaires au 
 
 ## Aide/Assistance post-formation
 
-Suite à la formation, s'il vous reste des questions, vous pouvez les poser directement depuis [l'espace discussions](https://github.com/SSM-Agriculture/formation-R-perf/discussions) du dépôt.  
+Suite à la formation, s'il vous reste des questions, vous pouvez les poser directement depuis [l'espace discussions](https://github.com/SSM-Agriculture/site-formations-R/discussions) de ce dépôt.  
 Pour ce faire, il faut disposer d'un compte sur github (voir [ici](https://github.com/signup?source=login)).  
  
 
 ## Contribution
 
-Si vous souhaitez contribuer, n'hésitez pas à nous transmettre des informations. Pour cela, vous pouvez faire [une issue](https://github.com/SSM-Agriculture/formation-R-perf/issues) dans ce dépôt.
+Si vous souhaitez contribuer, n'hésitez pas à nous transmettre des informations. Pour cela, vous pouvez faire une issue dans ce dépôt.
 
 ## Récupération du projet
 
