@@ -10,15 +10,15 @@ editor:
 
 -   Indexation **par position** :
 
-`x ← c(''Marion'', ''Benjamin'', ''Hélène'', ''Raymond''))`
+`x <- c("Marion", "Benjamin", "Hélène", "Raymond"))`
 
-`x[1] renvoie ''Marion''`
+`x[1] renvoie "Marion"`
 
-`x[c(1, 2)] renvoie le vecteur c(''Marion'', ''Benjamin'')`
+`x[c(1, 2)] renvoie le vecteur c("Marion", "Benjamin")`
 
 -   Indexation **par condition logique** :
 
-`x ← c(8.04, 18.01, 11.05, 14.05)`
+`x <- c(8.04, 18.01, 11.05, 14.05)`
 
 `x[x < 10] renvoie 8.04`
 
@@ -30,21 +30,25 @@ editor:
 
 Indexation **par position** :
 
-`x ← matrix(c(''Marion'', ''Benjamin'', ''Hélène'', ''Raymond''), nrow = 2, ncol = 2)`
+`x <- matrix(c("Marion", "Benjamin", "Hélène", "Raymond"), nrow = 2, ncol = 2)`
 
-`x[1,] renvoie le vecteur c(''Marion'', ''Hélène'')`
+`x[1,] renvoie le vecteur c("Marion", "Hélène")`
 
-`x[,2] renvoie le vecteur c(''Hélène'', ''Raymond'')`
+`x[,2] renvoie le vecteur c("Hélène", "Raymond")`
 
-`x[2,1] renvoie ''Benjamin''`
+`x[2,1] renvoie "Benjamin"`
 
-![](img/clipboard-matrice1.png){fig-align="center"}
+```{.r}
+     [,1]       [,2]     
+[1,] "Marion"   "Hélène" 
+[2,] "Benjamin" "Raymond"
+```
 
 ## Listes :
 
 -   Indexation **par position** :
 
-x ← list(c(TRUE, TRUE, FALSE), c(8.04, 18.01, 11.05, 14.05), "804")
+x <- list(c(TRUE, TRUE, FALSE), c(8.04, 18.01, 11.05, 14.05), "804")
 
 `x[[2]] renvoie le deuxième vecteur de la liste x soit c(8.04, 18.01, 11.05, 14.05)`
 
@@ -53,11 +57,11 @@ x ← list(c(TRUE, TRUE, FALSE), c(8.04, 18.01, 11.05, 14.05), "804")
 -   Indexation **par nom** si les vecteurs sont nommés avec l'opérateur
     \$ :
 
-`x ← list(grp = c(''Auguste'', ''Justine'', ''Sébastien'', ''Anne-Marie''), prt = c(''Hélène'', ''Raymond''), enf = c(''Marion", ''Benjamin'')`
+`x <- list(grp = c("Auguste", "Justine", "Sébastien", "Anne-Marie"), prt = c("Hélène", "Raymond"), enf = c("Marion", "Benjamin")`
 
-`x$grp renvoie le vecteur nommé ''grp'' de la liste x soit c(''Auguste'', ''Justine'', ''Sébastien'', ''Anne-Marie'')`
+`x$grp renvoie le vecteur nommé "grp" de la liste x soit c("Auguste", "Justine", "Sébastien", "Anne-Marie")`
 
-`x$enf[1] renvoie le premier élément du vecteur nommé ''enf'' de la liste x soit ''Marion''`
+`x$enf[1] renvoie le premier élément du vecteur nommé "enf" de la liste x soit "Marion"`
 
 ## Data.frame :
 
