@@ -10,10 +10,12 @@ slide-tone: false # for blind readers
 chalkboard: false # press the B key to toggle chalkboard
 transition: slide
 fig-cap-location: bottom
+
 toc: true
 toc-title: Sommaire
 toc-depth: 1
 toc-float: true
+
 # multiplex: true
 execute:
   echo: false
@@ -21,8 +23,6 @@ execute:
   cache: false
 editor:
   render-on-save: true
-  markdown: 
-    wrap: 72
 ---
 
 ## Avant-propos
