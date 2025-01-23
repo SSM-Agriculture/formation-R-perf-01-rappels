@@ -69,7 +69,7 @@ Fonctions utiles :
 
 ::::
 
-## Filtre et sélection dans une table 1/2
+## Filtre et sélection dans une table (1/2)
 
 -   **Avec R** de base, on utilise les techniques d'indexation
 
@@ -79,11 +79,11 @@ Fonctions utiles :
 
 `ma_table[,''Profession''] : toutes les observations de la variable Profession`
 
-`ma_table[1,4] : Première observation de la 4e variable`
+`ma_table[1,4] : première observation de la 4e variable`
 
 ![](img/clipboard-filtre1.png)
 
-## Filtre et sélection dans une table 2/2
+## Filtre et sélection dans une table (2/2)
 
 -   Avec le package **dplyr** :
 
@@ -117,27 +117,30 @@ Fonctions utiles :
     -   `table$new_var <- table$var1 + table$var2` → création à partir
         d'opérations
 
-    -   `table$new_var <- vecteur1 ou table1$new_var <- table2$var1` →
+    -   `table$new_var <- vecteur1 OU table1$new_var <- table2$var1` →
         création à partir de variables externes
 
-    -   `table$new_var <- ifelse(table$varref < x, val1, val2) outable$new_var <- case_when(table$varref < x ~ val1, TRUE ~ val2)`
+    -   `table$new_var <- ifelse(table$varref < x, val1, val2) OU table$new_var <- case_when(table$varref < x ~ val1, TRUE ~ val2)`
         → traitement conditionnel
 
 ## Création ou modification de variables dans une table
 
--   Avec le package **dply**r, on utilise la fonction mutate() qui
+-   Avec le package **dplyr**, on utilise la fonction `mutate()` qui
     permet de créer plusieurs variables à la fois et permet de
-    s'affranchir de l'indexation :
+    s'affranchir de l'indexation :
 
-    -   `table ← table %>% mutate(new_var1 = var1, newvar2 = var2)` →
+        `table ← table %>% mutate(new_var1 = var1, newvar2 = var2)` →
         formule générique
 
-    -   `table ← table %>% mutate( new_var1 = constante,` → création
-        d'une constante `new_var2 = fonction(var1),` → création à partir
+        `table ← table %>% mutate( new_var1 = constante,` → création
+        d'une constante 
+        
+        `new_var2 = fonction(var1),` → création à partir
         d'une formule
 
         `new_var3 = var1 + var2,`→ création à partir d'opérations
         arithmétiques\
+        
         `new_var4 = vecteur1)` → création à partir de variables externes
 
     Pour modifier une variable on affecte la nouvelle valeur à une
@@ -154,6 +157,8 @@ Fonctions utiles :
 
 `maTable %>% arrange(variables_de_tri)`
 
+<br>
+
 → possibilité de trier selon plusieurs colonnes : les variables de tri
 doivent être séparées par une virgule.
 
@@ -161,6 +166,8 @@ doivent être séparées par une virgule.
 fonction *desc()*.
 
 ## Fusion de tables
+
+<br>
 
 -   Pour fusionner deux tables en utilisant une ou plusieurs variables
     de jointure, on utilise les fonctions ***XXX_join()***
@@ -187,7 +194,7 @@ fonction *desc()*.
 ## Agrégation dans une table
 
 -   Pour résumer les données d'une table en une seule statistique, on
-    utilise la fonction ***summarise()***
+    utilise la fonction `summarise()`
 
 `maTable %>% summarise(fonctions_stat(variable))`
 
@@ -203,38 +210,51 @@ instructions par une virgule
 → on peut utiliser les fonctions statistiques de base telles que max,
 min, mean, sd, n…
 
-→ ungroup permet de ne plus tenir compte du regroupement par la suite
+→ ungroup permet de ne plus tenir compte du regroupement par la suite (avec 
+l'argument `drop = FALSE`)
 
 ## Transposition ou réorganisation de table
 
--   Pour réorganiser une table, c'est à dire passer des lignes en
-    colonnes ou inversement, on utilise les fonctions **pivot_wider()**
-    et **pivot_longer()** du package tidyr.
+Pour réorganiser une table, c'est à dire passer des lignes en
+colonnes ou inversement, on utilise les fonctions `pivot_wider()` 
+et `pivot_longer()` du package tidyr.
 
-+-----------------------------+-----------------------------+
-| ![](im                      | ![](im%20%%202%20%7C%       |
-| g/clipboard-pivotwider.png) | 20!%5B%5D(i%20m%20g%20%%202 |
-|                             | %20%7C%200g/clipboard-pivot |
-|                             | wider.png)%20%7C%200/clipbo |
-|                             | ard-pivotlonger.png)![](img |
-|                             | /clipboard-pivotlonger.png) |
-+-----------------------------+-----------------------------+
-| `                           | `maTable  %>%  p            |
-| maTable %>% pivot_wider (co | ivot_longer( variables_apiv |
-| l_de_noms, col_de_valeurs)` | oter , names_to = "indicate |
-|                             | ur", values_to = "valeur")` |
-+-----------------------------+-----------------------------+
-| **col_de_noms** = nom de la | **variables_a_pivoter** =   |
-| variable dont les modalités | nom de l'ensemble des       |
-| deviendront les intitulés   | variables à représenter     |
-| de colonne                  |                             |
-|                             | **names_to** = nom de la    |
-| **col_de_valeurs** = nom de | première colonne à créer    |
-| la variable à utiliser pour |                             |
-| remplir les colonnes        | **values_to** = nom de la   |
-|                             | deuxième colonne à créer    |
-+-----------------------------+-----------------------------+
+## Pivot_wider()
 
+![](img/clipboard-pivotwider.png)
+<br>
+
+`maTable %>% pivot_wider(col_de_noms, col_de_valeurs)`
+   
+- **col_de_noms** = nom de la variable dont les modalités deviendront les intitulés de colonne
+
+- **col_de_valeurs** = nom de la variable à utiliser pour remplir les colonnes
+
+## Pivot_longer()
+
+![](img/clipboard-pivotlonger.png)
+<br>
+
+`maTable %>% pivot_longer( variables_apivoter , names_to = "indicateur", values_to = "valeur")`
+
+- **variables_a_pivoter** = nom de l’ensemble des variables à représenter
+
+- **names_to** = nom de la première colonne à créer
+
+- **values_to** = nom de la deuxième colonne à créer
+
+## Exemples sur les pivots
+
+![](img/pivots_exemple.png)
+
+```r
+# Passage de tab1 à tab2 avec la fonction pivot_wider()
+tab2 ← pivot_wider(tab1, names_from = mesure, values_from = temperature)
+# Passage de tab2 à tab1 avec la fonction pivot_longer() 
+tab1 ← pivot_longer(tab2, c(min, max, moy), names_to = "mesure", 
+  values_to = "temperature")
+```
+  
 ## Lecture/ Ecriture de fichiers
 
 +------------------+------------------+------------------+
@@ -243,11 +263,11 @@ min, mean, sd, n…
 | Texte            | la fonction r    | la fonction r    |
 |                  | e                | e                |
 |                  | ader::read_delim | adr::write_delim |
-|                  | et ses dérivées  | et ses dérivées  |
-|                  | read_csv,        | write_csv,       |
-|                  | read_csv2,       | write_csv2…      |
-|                  | read_tsv,        |                  |
-|                  | read_fwf         |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
 +------------------+------------------+------------------+
 | RDS              | Fonction         | Fonction         |
 |                  | read_rds         | readr::write_rds |
@@ -273,9 +293,9 @@ min, mean, sd, n…
 |                  | read_ods du      | write_ods du     |
 |                  | package readODS  | package readODS  |
 +------------------+------------------+------------------+
-| Parquet          | Le package       | Le package       |
-|                  | `arrow` et       | [`arrow`](#0) et |
-|                  | `dplyr`          | `dplyr`          |
+| Parquet          | Les packages     | Le package       |
+|                  | `arrow` et       | `arrow`]         |
+|                  | `duckdb`         |                  |
 +------------------+------------------+------------------+
 
 ## Base de données avec R
@@ -289,4 +309,6 @@ min, mean, sd, n…
 `cnx <- dbConnect(Postgres(), dbname = ''sirene'', port = 5432, host = ''00.11.22.33'', user = ''nom_user'', password = ''mdp'')`
 
 -   Il suffit ensuite d'écrire les requêtes normalement à l'aide de la
-    fonction dbGetQuery : `dbGetQuery(cnx, ''SELECT * FROM TABLE'')`
+    fonction dbGetQuery :  
+    
+`dbGetQuery(cnx, ''SELECT * FROM TABLE'')`
