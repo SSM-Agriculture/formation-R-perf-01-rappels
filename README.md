@@ -5,7 +5,7 @@ Cette formation R perfectionnement est dispensée au [MASAF](https://agriculture
 
 ## Correction des exercices
 
-Les corrections des exercices ainsi que d'autres ressources complémentaires au support de formation sont accessibles en téléchargement directement depuis [le wiki](https://github.com/SSM-Agriculture/formation-R-perf/wiki) du dépôt.  
+Les corrections des exercices ainsi que d'autres ressources complémentaires au support de formation sont accessibles en téléchargement directement depuis [le wiki](https://github.com/SSM-Agriculture/site-formations-R/wiki) de ce dépôt.  
 
 ## Aide/Assistance post-formation
 
