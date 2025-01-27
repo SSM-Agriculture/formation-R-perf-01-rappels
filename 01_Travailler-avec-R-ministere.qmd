@@ -32,6 +32,7 @@ Logiciel IDE : Integrated Development Environment
 | -   rapidité des traitements (R travaille en mémoire)                          | -   documentation et aide souvent disponibles qu'en anglais                 |
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+
 
+
 ## Comment travailler avec R au MASA ?
 
 Depuis la plate-forme **CERISE** :
