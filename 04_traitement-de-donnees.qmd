@@ -130,22 +130,17 @@ Fonctions utiles :
     permet de créer plusieurs variables à la fois et permet de
     s'affranchir de l'indexation :
 
-        `table ← table %>% mutate(new_var1 = var1, newvar2 = var2)` →
-        formule générique
+    - `table ← table %>% mutate(new_var1 = var1, newvar2 = var2)` → formule générique  
 
-        `table ← table %>% mutate( new_var1 = constante,` → création
-        d'une constante 
+    - `table ← table %>% mutate(new_var1 = constante)` → création d'une constante  
         
-        `new_var2 = fonction(var1),` → création à partir
-        d'une formule
+    - `table ← table %>% mutate(new_var2 = fonction(var1))` → création à partir d'une formule  
 
-        `new_var3 = var1 + var2,`→ création à partir d'opérations
-        arithmétiques\
+    - `table ← table %>% mutate(new_var3 = var1 + var2)` → création à partir d'opérations arithmétiques  
         
-        `new_var4 = vecteur1)` → création à partir de variables externes
+    - `table ← table %>% mutate(new_var4 = vecteur1)` → création à partir de variables externes
 
-    Pour modifier une variable on affecte la nouvelle valeur à une
-    variable existante
+    Pour modifier une variable on affecte la nouvelle valeur à une variable existante
 
 ## Fonctions utiles au traitement des chaînes de caractères
 
