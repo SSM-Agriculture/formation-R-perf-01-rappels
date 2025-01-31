@@ -11,13 +11,13 @@ editor:
 Les tables de données sont très souvent des objets de type data.frame.
 Fonctions utiles :
 
--   *str(*) donne la structure de la table, names() le vecteur des noms
+-   `str()` donne la structure de la table, names() le vecteur des noms
     de colonnes
 
--   *head()* et *tail()* affichent respectivement, par défaut, les 6
+-   `head()` et `tail()` affichent respectivement, par défaut, les 6
     premières et les 6 dernières lignes de la table
 
--   *dim()* renvoie un vecteur composé du nombre de lignes et du nombre
+-   `dim()` renvoie un vecteur composé du nombre de lignes et du nombre
     de colonnes de la table
 
 ![](img/clipboard-tab1.png)
