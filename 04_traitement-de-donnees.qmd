@@ -263,10 +263,10 @@ tab1 ← pivot_longer(tab2, c(min, max, moy), names_to = "mesure", values_to = "
 
 | Type        | Lecture                                           | Ecriture                                                                      |
 |------------|--------------------------------|------------------------------|
-| Texte       | \`reader::read_delim()\`                          | \`reader::write_delim()\`                                                     |
-| RDS         | \`read_rds()\`                                    | Fonction readr::write_rds                                                     |
+| Texte       | `reader::read_delim()`                            | `reader::write_delim()`                                                       |
+| RDS         | `read_rds()`                                      | `readr::write_rds()`                                                          |
 | XLS         | les fonctions du package {readxl}                 | les fonctions du package {openxlsx}                                           |
-| SAS ou SPSS | \`haven::read_sas()\` et \`haven::read_spss()\`   | Exporter au format texte puis lecture dans SAS ou SPSS (sans objet désormais) |
+| SAS ou SPSS | `haven::read_sas()` et `haven::read_spss()`   | Exporter au format texte puis lecture dans SAS ou SPSS (sans objet désormais) |
 | ODS         | `readODS::read_ods()`                             | `readODS::write_ods()`                                                        |
 | Parquet     | Les packages `arrow` et `duckdb`                  | Le package `arrow`\]                                                          |
 
