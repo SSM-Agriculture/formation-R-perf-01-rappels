@@ -278,9 +278,9 @@ tab1 ← pivot_longer(tab2, c(min, max, moy), names_to = "mesure", values_to = "
 -   Des informations pour la connexion sont nécessaires :
     library(RPostgres)
 
-`cnx <- dbConnect(Postgres(), dbname = ''sirene'', port = 5432, host = ''00.11.22.33'', user = ''nom_user'', password = ''mdp'')`
+`cnx <- dbConnect(Postgres(), dbname = "sirene", port = 5432, host = "00.11.22.33", user = "nom_user", password = "mdp")`
 
 -   Il suffit ensuite d'écrire les requêtes normalement à l'aide de la
     fonction dbGetQuery :
 
-`dbGetQuery(cnx, ''SELECT * FROM TABLE'')`
+`dbGetQuery(cnx, "SELECT * FROM TABLE")`
