@@ -15,22 +15,19 @@ editor:
 
 -   Création de vecteurs avec la fonction c() :
 
-`x ← c(TRUE, TRUE, FALSE) is.logical(x)`
+`x ← c(TRUE, TRUE, FALSE)`
 
-`x ← c(8.04, 18.01, 11.05, 14.05) is.numeric(x)`
+`x ← c(8.04, 18.01, 11.05, 14.05)`
 
-`x ← c("Chaîne1", "804", "Chaîne3") is.character(x)`
+`x ← c("Chaîne1", "804", "Chaîne3")`
 
 -   Fonctions utiles sur les vecteurs : length(), class(), names(),
     summary(), sort(), head(), tail(), unique()
 
-## Les matrices et arrays :
+## Les matrices :
 
 -   Une matrice est composée d'un ou de plusieurs ***éléments de mêmes
     types***, organisés en ***deux dimensions***.
-
-Une array est composée d'un ou de plusieurs éléments de mêmes types,
-organisés en plusieurs dimensions.
 
 -   Création de matrice avec la fonction matrix() :
 
