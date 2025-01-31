@@ -253,8 +253,7 @@ et `pivot_longer()` du package tidyr.
 # Passage de tab1 à tab2 avec la fonction pivot_wider()
 tab2 ← pivot_wider(tab1, names_from = mesure, values_from = temperature)
 # Passage de tab2 à tab1 avec la fonction pivot_longer() 
-tab1 ← pivot_longer(tab2, c(min, max, moy), names_to = "mesure", 
-  values_to = "temperature")
+tab1 ← pivot_longer(tab2, c(min, max, moy), names_to = "mesure", values_to = "temperature")
 ```
   
 ## Lecture/ Ecriture de fichiers
