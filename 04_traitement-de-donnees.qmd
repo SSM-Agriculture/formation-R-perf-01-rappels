@@ -120,7 +120,8 @@ Fonctions utiles :
     -   `table$new_var <- vecteur1 OU table1$new_var <- table2$var1` →
         création à partir de variables externes
 
-    -   `table$new_var <- ifelse(table$varref < x, val1, val2) OU table$new_var <- case_when(table$varref < x ~ val1, TRUE ~ val2)`
+    -   `table$new_var <- ifelse(table$varref < x, val1, val2)`  
+    OU `table$new_var <- case_when(table$varref < x ~ val1, TRUE ~ val2)`
         → traitement conditionnel
 
 ## Création ou modification de variables dans une table
