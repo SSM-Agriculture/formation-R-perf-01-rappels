@@ -4,147 +4,148 @@ editor:
     wrap: 72
 ---
 
-# Traitement de données {.backgroundTitre}
+```{r, exemple_df}
+
+library(tidyverse)
+library(rio)
+
+maTable <- data.frame(
+  cat=rep(letters[1:2],5),
+  var1= runif(10,max = 10),
+  var2= rnorm(10,sd = 100),
+  var3=c(rep(NA,3),sample(1:10,7,T)),
+  fact1=factor(rep(LETTERS[1:5],2)),
+  MAJUSCULE = LETTERS[1:10]
+)
+
+ 
+```
+
+# Traitement de données avec `dplyr` {.backgroundTitre}
 
 ## Les tables de données
 
-Les tables de données sont très souvent des objets de type data.frame.
-Fonctions utiles :
-
--   *str(*) donne la structure de la table, names() le vecteur des noms
-    de colonnes
-
--   *head()* et *tail()* affichent respectivement, par défaut, les 6
-    premières et les 6 dernières lignes de la table
-
--   *dim()* renvoie un vecteur composé du nombre de lignes et du nombre
-    de colonnes de la table
-
 ![](img/clipboard-tab1.png)
 
-## Manipulation de données
+Dans une table de données, on peut vouloir :
 
-<br>
+-   sélectionner des lignes ou des colonnes particulières
+-   créer de nouvelles variables
+-   réaliser des calculs ou des opérations sur tout ou partie des
+    observations
+-   faire une jointure avec une autre table
+-   transposer ou faire pivoter la table
+-   etc.
 
--   La partie *Manipulation de données* va fournir les outils
-    nécessaires aux traitements classiques à opérer sur une table de
-    données.
+<!-- ## Manipulation de données -->
 
--   À part pour la lecture et l’écriture de fichiers, les outils
-    proposés relèvent des packages **dplyr** et **tidyr** : ils sont
-    d’un usage plus simple que les outils R de base et couvrent beaucoup
-    des fonctionnalités les plus courantes.
+<!-- <br> -->
 
-## Outils DPLYR & TIDYR
+<!-- -   La partie *Manipulation de données* va fournir les outils -->
 
--   Objectif de dplyr : rassembler dans un seul package les outils de
-    manipulation de données les plus importants pour l’analyse des
-    données
+<!--     nécessaires aux traitements classiques à opérer sur une table de -->
 
-    ⇒ ensemble de fonctions correspondant à un ensemble d’opérations
-      élémentaires
+<!--     données. -->
 
--   Deux principes pour les packages *tidyr* et *dplyr* :
+## Packages *dplyr* et *tidyr*
+
+-   *Dplyr* est un package, issu du la collection *tidyverse*, qui a
+    pour objectif de faciliter la manipulation de tableaux.
+
+-   Deux principes pour les packages *dplyr* et *tidyr* :
 
     -   **Usage de fonctions « verbe »** toutes construites sur le même
-        principe : le premier paramètre est la table de données sur
-        laquelle on travaille.
-
-    -   **Usage de l'opérateur pipe** (issu du package magrittr) Dans
+        principe : le 1er paramètre est la table de données sur laquelle
+        on travaille. Les noms de variable n'ont pas besoin d'être en
+        guillemets
+    -   **Usage de l'opérateur pipe** (issu du package magrittr). Dans
         R-Studio, le raccourci clavier pour cet opérateur est : **Ctrl +
-        Shift + M**
+        Shift + M**. Permet d'enchaîner les fonctions sans les emboîter:
 
+    ``` r
+       `maTable %\>% select(noms_des_colonnes) %>% filter(conditions) %>% summarise(total=sum(maVariable))`
+    au lieu de :
+       `summarise(filter(select(maTable,noms_des_colonnes),conditions),total=sum(maVariable))`
+    ```
+Avancé : avec des fonctions d'autres packages, possibilité d'utiliser le
+point `.` pour renvoyer à tout ce qui est avant le pipe
 
 ::: columns
-::: {.column width="50%"}
-
+::: {.column width="30%"}
 ![](img/clipboard-pipe1.png)
 :::
 
-::: {.column width="50%"}
-
-![](img/clipboard-pipe2.png)
-
+::: {.column width="30%"}
+![](img/clipboard-pipe2.png){style="float: right; margin-left: 10px;"}
+:::
 :::
 
-::::
+## Filtrer des observations dans une table
 
-## Filtre et sélection dans une table (1/2)
+-   Pour filtrer les lignes dans une table à l'aide de conditions
+    logiques, on utilise la fonction `filter()`
+    -   maTable %\>% filter(conditions)
 
--   **Avec R** de base, on utilise les techniques d'indexation
+`ma_table %>% filter(Profession == ''Militaire'')`
 
-`ma_table[1,] : toutes les variables pour la première observation`
+-   Quelques opérateurs utiles : `==` (égal à), `!=` (différent de),
+    `<`, `>`, `<=`, `>=`, `%in%`, `&` (et), `|` (ou avec Ctrl+Alt+6)
 
-`ma_table[,4] : toutes les observations de la 4e variable`
+![](img/clipboard-filtre2.png){width="66%" height="66%"}
 
-`ma_table[,''Profession''] : toutes les observations de la variable Profession`
+## Sélection des colonnes dans une table
 
-`ma_table[1,4] : première observation de la 4e variable`
+-   Pour sélectionner des colonnes dans une table, on utilise la
+    fonction `select()`
 
-![](img/clipboard-filtre1.png)
+    -   `ma_table %>% filter(Age < 30) %>% select(Nom_prenom)`
 
-## Filtre et sélection dans une table (2/2)
+-   Différentes façons de sélectionner ("tidy-select"):
 
--   Avec le package **dplyr** :
+    -   ^en nommant chaque variable une à une (`select(Nom_prenom, Age)`)^
+    -   ^en indiquant un vecteur de variables consécutives (`select(Nom_prenom:Code_postal_residence)`)^
+    -   ^en donnant les indices des variables (`select(1:3)`)^
+    -   ^grâce à de la sélection avec des opérateurs "helpers" (contient, commence par, finit par...) (`select(contains("a"),starts_with("P"),ends_with("E"),where(is.numeric), last_col()`)^
+    -   ^en enlevant celles dont on ne veut pas (`select(-Age)` ou `select(!(Age:Code_postal_residence)`)^
 
-    -   Pour sélectionner des colonnes dans une table, on utilise la
-        fonction
+    ![](img/clipboard-filtre2.png){fig-align="center" width="50%"}
 
-        -   select() maTable %\>% select(noms_des_colonnes)
+## Création ou modification de variables dans une table (1/2)
 
-    -   Pour filtrer les lignes dans une table à l’aide de conditions
-        logiques, on utilise la fonction filter()
+Avec le package **dplyr**, on utilise la fonction `mutate()` qui permet
+de créer plusieurs variables à la fois :
 
-        -   maTable %\>% filter(conditions)
+-   `table ← table %>% mutate(new_var1 = var1, newvar2 = var2)` →
+    formule générique
+-   `table ← table %>% mutate(`
+    -   `new_var1 = constante,` → création d'une constante
+    -   `new_var2 = fonction(var1),` → création à partir d'une formule
+        (paste(), substr(), mean(), sum()...)
+    -   `new_var3 = var1 + var2,`→ création à partir d'opérations
+        arithmétiques
+    -   `new_var4 = vecteur1,` → création à partir de variables externes
+        (longueur 1 ou nb_obs)
+    -   `new_var5 = ifelse(varref < x, val1, val2))` ou
+        ``` new_var5 =``case_when(varref \< x \~ val1, TRUE \~ val2)\ ```
+        → création à partir d'une condition logique
 
-`ma_table %>% filter(Profession == ''Militaire'')`
+Pour modifier une variable, on affecte la nouvelle valeur à une variable
+existante
 
-`ma_table %>% filter(Age < 30) %>% select(Nom_prenom)`
+## Création ou modification de variables dans une table (2/2)
 
-![](img/clipboard-filtre2.png)
+-   Paramètres utiles pour aller plus loin :
 
-## Création ou modification de variables dans une table
+    -   .after ou .before : pour placer la variable où on le souhaite
+        (dernière colonne par défaut) (pour éviter un `relocate()` après
+    -   .keep : pour choisir si on garde les variables qui servent à
+        construire une nouvelle variable (pour éviter un
+        `select(-var1,-var2)` après)
 
--   Avec **R de base**, on utilise l'opérateur d'affectation :
+    `table ← table %>% mutate(new_var1 = var1+var2, .after=ident,.keep="unused")`
 
-    -   `table$new_var <- variable` → formule générique
-
-    -   `table$new_var <- valeur_constante` → création d'une constante
-
-    -   `table$new_var <- fonction(table$var1)` → création à partir
-        d'une formule
-
-    -   `table$new_var <- table$var1 + table$var2` → création à partir
-        d'opérations
-
-    -   `table$new_var <- vecteur1 OU table1$new_var <- table2$var1` →
-        création à partir de variables externes
-
-    -   `table$new_var <- ifelse(table$varref < x, val1, val2) OU table$new_var <- case_when(table$varref < x ~ val1, TRUE ~ val2)`
-        → traitement conditionnel
-
-## Création ou modification de variables dans une table
-
--   Avec le package **dplyr**, on utilise la fonction `mutate()` qui
-    permet de créer plusieurs variables à la fois et permet de
-    s'affranchir de l'indexation :
-
-        `table ← table %>% mutate(new_var1 = var1, newvar2 = var2)` →
-        formule générique
-
-        `table ← table %>% mutate( new_var1 = constante,` → création
-        d'une constante 
-        
-        `new_var2 = fonction(var1),` → création à partir
-        d'une formule
-
-        `new_var3 = var1 + var2,`→ création à partir d'opérations
-        arithmétiques\
-        
-        `new_var4 = vecteur1)` → création à partir de variables externes
-
-    Pour modifier une variable on affecte la nouvelle valeur à une
-    variable existante
+Dans cet exemple, la nouvelle variable est placée après ident, et var1
+et var2 sont supprimés
 
 ## Fonctions utiles au traitement des chaînes de caractères
 
@@ -162,8 +163,10 @@ Fonctions utiles :
 → possibilité de trier selon plusieurs colonnes : les variables de tri
 doivent être séparées par une virgule.
 
-→ on encadre les variables qu’il faut trier de façon décroissante par la
+→ on encadre les variables qu'il faut trier de façon décroissante par la
 fonction *desc()*.
+
+`maTable %>% arrange(var1,desc(var2))`
 
 ## Fusion de tables
 
@@ -180,13 +183,19 @@ fonction *desc()*.
 
 ## Fusion de tables
 
+-   Syntaxe :
+
+    `maTable1 %>% full_join(maTable2, by = "variable_de_jointure")`
+
+    `maTable1 %>% full_join(maTable2, by = join_by(id1_tab1==id1_tab2))`
+
 -   Il est possible de réaliser une jointure à l'aide de plusieurs
-    variables identifiantes : l'argument by s'écrit alors **c(''id1'',
-    ''id2'', ...)**
+    variables identifiantes : l'argument by s'écrit alors
+    **c(''id1'',''id2'', ...)** ou **join_by(id1,id2)**
 
 -   Lorsque les variables de jointure ont des noms différents dans les
     deux tables, l'argument by prend comme paramètre un vecteur du type
-    **c(''id1_tab1'' = ''id1_tab2'', ''id2_tab1'' = ''id2_tab2'',…)**
+    **c(''id1_tab1'' = ''id1_tab2'',''id2_tab1'' = ''id2_tab2'',...)**
 
 -   Si rien n'est précisé, la fusion se fait sur l'ensemble des
     variables portant le même nom dans les deux tables
@@ -202,112 +211,196 @@ fonction *desc()*.
     variables catégorielles on utilise la fonction ***group_by()***
     avant la fonction ***summarise()***
 
-`maTable %>% group_by(var_groupe)%>% summarise(fonctions_stat(variable))%>% ungroup()`
+`maTable %>% group_by(var_groupe)%>% summarise(fonctions_stat(variable))`
+
+`maTable %>% summarise(fonctions_stat(variable), .by=var_groupe)`
 
 → possibilité de calculer plusieurs statistiques en séparant les
 instructions par une virgule
 
 → on peut utiliser les fonctions statistiques de base telles que max,
-min, mean, sd, n…
+min, mean, median, sqrt, sd, n,...
 
-→ ungroup permet de ne plus tenir compte du regroupement par la suite (avec 
-l'argument `drop = FALSE`)
+<!-- → ungroup() permet de ne plus tenir compte du regroupement par la suite -->
 
-## Transposition ou réorganisation de table
+<!-- (avec l'argument `drop = FALSE`), par défaut abandon du dernier niveau -->
+
+<!-- de regroupement. Possibilité aussi de renseigner le paramètre `.groups` -->
+
+<!-- de summarise() -->
+
+## Transposition ou réorganisation de table (tidyr)
 
 <br>
 
-Pour réorganiser une table, c'est à dire passer des lignes en
-colonnes ou inversement, on utilise les fonctions `pivot_wider()` 
-et `pivot_longer()` du package tidyr.
+Pour réorganiser une table, c'est à dire passer des lignes en colonnes
+ou inversement, on utilise les fonctions `pivot_wider()` et
+`pivot_longer()` du package tidyr.
 
 ## Pivot_wider()
 
 <br>
 
-![](img/clipboard-pivotwider.png){fig-align="center"}
-<br>
+![](img/clipboard-pivotwider.png){fig-align="center"} <br>
 
-`maTable %>% pivot_wider(col_de_noms, col_de_valeurs)`
-   
-- **col_de_noms** = nom de la variable dont les modalités deviendront les intitulés de colonne
+`maTable %>% pivot_wider(id_cols = col_restant, names_from = col_de_noms, values_from = col_de_valeurs)`
+les intitulés de colonne
 
-- **col_de_valeurs** = nom de la variable à utiliser pour remplir les colonnes
+-   **col_restant** = nom des variables qui seront conservées telles
+    quelles dans la table pivotée (par défaut toutes celles qui ne sont
+    pas indiquées dans col_de_noms ou col_de_valeurs)
+
+-   **col_de_noms** = nom de la variable dont les modalités deviendront
+    les intitulés de colonne
+
+-   **col_de_valeurs** = nom de la variable à utiliser pour remplir les
+    colonnes
 
 ## Pivot_longer()
 
 <br>
 
-![](img/clipboard-pivotlonger.png){fig-align="center"}
-<br>
+![](img/clipboard-pivotlonger.png){fig-align="center"} <br>
 
-`maTable %>% pivot_longer( variables_apivoter , names_to = "indicateur", values_to = "valeur")`
+`maTable %>% pivot_longer( cols = variables_apivoter , names_to = "indicateur", values_to = "valeur")`
 
-- **variables_a_pivoter** = nom de l’ensemble des variables à représenter
+-   **variables_a_pivoter** = nom de l'ensemble des variables à
+    représenter
 
-- **names_to** = nom de la première colonne à créer
+-   **names_to** = nom de la première colonne à créer
 
-- **values_to** = nom de la deuxième colonne à créer
+-   **values_to** = nom de la deuxième colonne à créer
 
 ## Exemples sur les pivots
 
 ![](img/pivots_exemple.png)
 
-```r
+``` r
 # Passage de tab1 à tab2 avec la fonction pivot_wider()
-tab2 ← pivot_wider(tab1, names_from = mesure, values_from = temperature)
+tab2 ← pivot_wider( tab1, names_from = mesure, values_from = temperature)
 # Passage de tab2 à tab1 avec la fonction pivot_longer() 
-tab1 ← pivot_longer(tab2, c(min, max, moy), names_to = "mesure", 
+tab1 ← pivot_longer(tab2, cols = c(min, max, moy), names_to = "mesure", 
   values_to = "temperature")
 ```
-  
-## Lecture/ Ecriture de fichiers
 
-+------------------+------------------+------------------+
-| Type             | Lecture          | Ecriture         |
-+==================+==================+==================+
-| Texte            | la fonction r    | la fonction r    |
-|                  | e                | e                |
-|                  | ader::read_delim | adr::write_delim |
-|                  |                  |                  |
-|                  |                  |                  |
-|                  |                  |                  |
-|                  |                  |                  |
-|                  |                  |                  |
-+------------------+------------------+------------------+
-| RDS              | Fonction         | Fonction         |
-|                  | read_rds         | readr::write_rds |
-+------------------+------------------+------------------+
-| XLS              | les fonctions du | les fonctions du |
-|                  | package readxl   | package openxlsx |
-+------------------+------------------+------------------+
-| SAS ou SPSS      | les fonctions    | il vaut mieux    |
-|                  | read_sas et      | exporter au      |
-|                  | read_spss du     | format texte et  |
-|                  | package haven.   | lire le fichier  |
-|                  | Attention : il   | dans le logiciel |
-|                  | vaut mieux       | d'origine en     |
-|                  | exporter au      | tant que fichier |
-|                  | format texte     | au format        |
-|                  | dans le logiciel | texte !          |
-|                  | d'origine pour   |                  |
-|                  | le lire en tant  |                  |
-|                  | que données      |                  |
-|                  | texte dans R.    |                  |
-+------------------+------------------+------------------+
-| ODS              | la fonction      | la fonction      |
-|                  | read_ods du      | write_ods du     |
-|                  | package readODS  | package readODS  |
-+------------------+------------------+------------------+
-| Parquet          | Les packages     | Le package       |
-|                  | `arrow` et       | `arrow`]         |
-|                  | `duckdb`         |                  |
-+------------------+------------------+------------------+
+## Autres fonctions utiles de dplyr et tidyr
 
-## Base de données avec R
+-   `case_when()` : en complément d'un mutate, pour modifier des valeurs
+    ou modalités selon certaines conditions
+-   `slice()` et dérivés: une autre façon de filtrer les lignes (ex : n
+    plus grandes/petites valeurs d'une variable)
+-   `distinct()` : gérer des doublons ou connaître les modalités d'une
+    ou d'un groupe de variables
+-   `rename()` : renommer une variable (nouveau_nom=ancien_nom)
+-   `relocate()` : déplacer une variable (avec .after et .before)
+-   `count()` : compter le nombre d'observation pour chaque/un
+    croisement de modalités (raccourci pour
+    `summarise(eff=n(),.by=var_groupes)`)
+-   `pull()`: pour extraire un vecteur à partir d'un data.frame
+    (`maTable %>% pull(var1)`)
+-   `replace_na()` : remplacer toutes les valeurs manquantes NA par une
+    valeur donnée
+-   `drop_na()` : supprimer des lignes qui comportent des NA
+
+## Effectuer des opérations sur plusieurs colonnes : `across()` (1/2)
+
+`Dplyr` permet de travailler sur plusieurs colonnes en même temps. Par
+exemple, si l'on doit faire la moyenne de toutes les variables
+numériques, cela permet de ne pas réécrire X fois quasiment la même
+ligne.
+
+-   S'utilise avec summarise et mutate
+
+`maTable %>%  summarise(across(.cols=mesVariables,.fns=maFonction, .names= mes NouveauxNoms))`
+
+-   *mesVariables* : sélection de variables type tidy-select ( comme vu
+    dans `select()` )
+
+-   *maFonction* : une (nom ou avec `~` et `.x`) ou plusieurs fonctions
+
+-   *NouveauxNoms* : si pas renseigné, nouveau noms (possible d'utiliser
+    l'ancien nom et le nom de la fonction)
+
+## Effectuer des opérations sur plusieurs colonnes : `across()` (2/2)
+
+Exemple 1 :
+
+```{r, echo=T}
+resultat <- maTable %>% 
+  summarise(
+    across(.cols=where(is.numeric), # sélectionne les variables numériques
+           .fns= mean, # fait la moyenne 
+           .names = "moy_{.col}")) # si on part de var1 -> moy_var1
+resultat
+```
+
+Exemple 2 :
+
+```{r, echo=T}
+resultat <- maTable %>% 
+  mutate(
+    across(.cols=contains("var"), # noms de colonne qui contiennent "var"
+           .fns= list(moy = ~ mean(.x, na.rm = T), somme = sum), # fait la moyenne en zappant les valeurs manquantes 
+           .names = "{.fn}_{.col}"), # nom de la variable créée
+    .before = everything(),.keep="used") 
+resultat %>% filter(rownames(.) %in% 1:2) # le point renvoie à tout ce qui est avant le pipe   
+```
+
+## Effectuer des opérations sur plusieurs colonnes
+
+-   `rename_with()` (renommer un ensemble de variables avec une
+    fonction) :
+
+`maTable %>% rename_with(toupper,.cols = contains("var"))` (mettre
+toutes les variables dont le nom contient "var" en majuscules)
+
+-   `if_any()` ou `if_all()` (pour appliquer avec filter(), par exemple,
+    toutes les observations qui contiennent qui ont au moins une valeur
+    manquante ou l'inverse)
+
+`maTable %>% filter(if_any(.cols=everything(),.fns = is.na))`
+
+`maTable %>% filter(if_all(.cols=everything(),.fns = ~ !is.na(.x)))`
+
+## Lecture ou écriture de fichiers (1/2)
+
+Version courte: le package Rio permet avec une seule fonction d'importer
+ou exporter quasiment tout type de fichier (.csv, .xlsx, .ods, .rds,
+.sas7bdat, .parquet, etc.)
+
+Syntaxe de base :
+
+-   Import simple :
+    `maTable <- import("V:/adresseMaTable/monFichierAImporter.csv")`
+
+-   Export simple :
+    `export(maTable,"V:/adresseMaTable/monFichierAExporter.xlsx")`
+
+Rio est un package qui mobilise d'autres packages dédiés à certains
+types de fichier, cf. aide de rio pour les connaître et spécifier
+certains paramètres (ex: importer un seul onglet)
+
+-   `MaTable <- import("V:/adresseMaTable/monFichierAImporter.xlsx", sheet="monOnglet")`
+    (paramètres de `readxl::read_excel()`)
+
+## Lecture ou écriture de fichiers (2/2)
+
+L'alternative est de passer par les fonctions des packages dédiés à
+chaque type de fichier:
+
+| Type        | Lecture                                                                             | Ecriture                                                 |
+|------------------|--------------------------------|----------------------|
+| CSV         | data.table::fread()                                                                 | data.table::fwrite()                                     |
+| RDS         | readr::read_rds()                                                                   | readr::write_rds()                                       |
+| XLS, XLSX   | readxl::read_excel() ou openxlsx::read.xlsx()                                       | openxlsx::write.xlsx()                                   |
+| SAS ou SPSS | read_sas et read_spss du package haven (privilégier passage intermédiaire par .csv) | write_sas() ou wrtie_spss() (préférer un export en .csv) |
+| ODS         | read_ods du package readODS                                                         | write_ods du package readODS                             |
+| Parquet     | arrow::read_parquet()                                                               | arrow::write_parquet()                                   |
+
+## Base de données avec R (avancé)
 
 -   R offre la possibilité d'effectuer des requêtes SQL sur des bases de
-    données externes.
+    données externes (il faut donc connaître la syntaxe SQL).
 
 -   Des informations pour la connexion sont nécessaires :
     library(RPostgres)
@@ -315,6 +408,6 @@ tab1 ← pivot_longer(tab2, c(min, max, moy), names_to = "mesure",
 `cnx <- dbConnect(Postgres(), dbname = ''sirene'', port = 5432, host = ''00.11.22.33'', user = ''nom_user'', password = ''mdp'')`
 
 -   Il suffit ensuite d'écrire les requêtes normalement à l'aide de la
-    fonction dbGetQuery :  
-    
+    fonction dbGetQuery :
+
 `dbGetQuery(cnx, ''SELECT * FROM TABLE'')`

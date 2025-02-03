@@ -1,37 +1,50 @@
 # Travailler avec R au ministère {.backgroundTitre}
 
-## Présentation
+<!-- ## Présentation de R avec RStudio -->
 
-Logiciel de traitement de données et analyse statistique :
+<!-- <br> -->
 
--   offre un environnement interactif de développement statistique, analytique et graphique ;
+<!-- **RStudio** = interface qu'on utilise au quotidien :  -->
 
--   est doté d’un langage de programmation R ;
+<!-- -   permet le traitement de données et analyse statistique avec **R** ( = langage de programmation, ce qu'il y a sous le capot) : -->
 
--   permet d’accéder à des données, de les manipuler et les analyser ;
+<!-- -   offre un environnement interactif de développement statistique, analytique et graphique  ; -->
 
--   S'interface avec les bases de données : Oracle, SYBASE, PostgreSQL, SQLITE…
+<!-- -   permet d'accéder à des données, de les manipuler et les analyser ; -->
 
-Remplace SAS ou SPSS
+<!-- -   s'interface avec les bases de données : Oracle, SYBASE, PostgreSQL, SQLITE... -->
 
-Logiciel IDE : Integrated Development Environment
+<!-- <!-- Remplace SAS ou SPSS -->
 
-## Pourquoi utiliser R
+<!-- <!-- Logiciel IDE : Integrated Development Environment -->
 
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+
-| Avantages                                                                      | **Inconvénients**                                                           |
-+:===============================================================================+:============================================================================+
-| -   logiciel gratuit et open source                                            | -   Langage informatique nouveau à appréhender                              |
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+
-| -   développement actif : communauté d’utilisateurs de plus en plus importante | -   pas de génération de code par « clic-bouton »                           |
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+
-| -   nombreux packages (« outils ») scientifiques                               | -   compatibilité des versions                                              |
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+
-| -   très bonnes capacités graphiques                                           | -   calculs sur de grosses volumétries plus « gourmand » en CPUs et Mémoire |
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+
-| -   rapidité des traitements (R travaille en mémoire)                          | -   documentation et aide souvent disponibles qu'en anglais                 |
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+
+<!-- ## Avantages et inconvénients de R -->
 
+<!-- +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+ -->
+
+<!-- | Avantages                                                                      | **Inconvénients**                                                           | -->
+
+<!-- +:===============================================================================+:============================================================================+ -->
+
+<!-- | -   logiciel gratuit et open source                                            | -   langage informatique nouveau à appréhender                             | -->
+
+<!-- +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+ -->
+
+<!-- | -   développement actif : communauté d’utilisateurs importante                 | -   pas de génération de code par « clic-bouton »                           | -->
+
+<!-- +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+ -->
+
+<!-- | -   nombreux packages (« outils ») scientifiques                               | -   compatibilité des versions                                              | -->
+
+<!-- +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+ -->
+
+<!-- | -   très bonnes capacités graphiques                                           | -   calculs sur de grosses volumétries plus « gourmand » en CPUs et mémoire | -->
+
+<!-- +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+ -->
+
+<!-- | -   rapidité d'accès aux données (R travaille en mémoire)                      | -   documentation et aide souvent disponibles qu'en anglais                 | -->
+
+<!-- +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+ -->
 
 ## Comment travailler avec R au MASA ?
 
@@ -43,7 +56,7 @@ Depuis la plate-forme **CERISE** :
 
 ![](img/clipboard-travailler1.png)
 
-En **local sur son poste**, sans intervention de Pastel
+En **local sur son poste** <!-- , sans intervention de Pastel -->
 
 ![](img/clipboard-preco.png){fig-align="center"}
 
@@ -54,16 +67,36 @@ Existence d'une plate-forme CERISE de **Préproduction** :\
 
 ![](img/clipboard-console.png){fig-align="center"}
 
-## Organisation sous CERISE
+## Généralités sur R avec RStudio
 
-Cerise est organisé en plusieurs répertoires :
+On utilise des packages (ensemble de fonctions) qu'il faut installer puis charger (sinon erreur!). Par exemple:
 
--   **00-Espace-Personnel** =\> espaces personnels des agents, **accessible par l’agent uniquement**
+-   `install.packages("rio")`
+-   `library(rio)` ou `require(rio)`
 
--   **01-Espace-de-Partage** =\> lieu de partage général entre les différents acteurs
+Pour obtenir de l'aide sur une fonction :
 
--   **02-Espace-de-Production** =\> plateforme de stockage des données brutes collectées, ainsi que des fichiers de données et programmes issus des traitements statistiques réalisés par l'équipe projet
+-   `?maFonction`
+-   double-clic sur le nom de la fonction et F1
 
--   **03-Espace-de-Diffusion** =\> mise à disposition au sein du SSM des données issues des traitements statistiques réalisés en amont =\> Ces deux derniers espaces sont découpés par opérations statistiques
+<!-- Pour visualiser un tableau : `View()` -->
 
--   **04-Espace-Echanges** =\> stockage des fichiers de données à transmettre aux autres applications du SI CASSIS (par exemple Agreste) ainsi qu'aux SI des partenaires extérieurs
+Quelques raccourcis claviers usuels:
+
+-   Ctrl + Entrée : exécuter la ligne de code actuelle (curseur) ou une sélection
+-   Ctrl + Shift + C : mettre une ligne en commentaires
+-   Ctrl + Shift + M : Écrire un pipe %\>% ou avec la nouvelle écriture \|\>
+
+<!-- ## Organisation sous CERISE -->
+
+<!-- Cerise est organisé en plusieurs répertoires : -->
+
+<!-- -   **00-Espace-Personnel** =\> espaces personnels des agents, **accessible par l'agent uniquement** -->
+
+<!-- -   **01-Espace-de-Partage** =\> lieu de partage général entre les différents acteurs (ex: formations R) -->
+
+<!-- -   **02-Espace-de-Production** =\> plateforme de stockage des données brutes collectées, ainsi que des fichiers de données et programmes issus des traitements statistiques réalisés par l'équipe projet -->
+
+<!-- -   **03-Espace-de-Diffusion** =\> mise à disposition au sein du SSM des données issues des traitements statistiques réalisés en amont =\> Ces deux derniers espaces sont découpés par opérations statistiques -->
+
+<!-- -   **04-Espace-Echanges** =\> stockage des fichiers de données à transmettre aux autres applications du SI CASSIS (par exemple Agreste) ainsi qu'aux SI des partenaires extérieurs -->

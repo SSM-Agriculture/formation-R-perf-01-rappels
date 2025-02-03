@@ -6,61 +6,213 @@ editor:
 
 # Les différents objets R {.backgroundTitre}
 
-## Les vecteurs :
+<!-- ```{r, exemple_df} -->
 
--   Objet élémentaire de R, une dimension
+<!-- library(tidyverse) -->
+<!-- library(rio) -->
 
--   Ensemble de valeurs, appelées éléments, de même nature (nombres,
-    chaînes de caractères, booléens…)
+<!-- maTable <- data.frame( -->
+<!--   cat=rep(letters[1:2],5), -->
+<!--   var1= runif(10,max = 10), -->
+<!--   var2= rnorm(10,sd = 100), -->
+<!--   var3=c(rep(NA,3),sample(1:10,7,T)), -->
+<!--   fact1=factor(rep(LETTERS[1:5],2)), -->
+<!--   MAJUSCULE = LETTERS[1:10], -->
+<!--   logique=sample(c(T,F),10,T) -->
 
--   Création de vecteurs avec la fonction c() :
+<!-- ) -->
 
-`x ← c(TRUE, TRUE, FALSE) is.logical(x)`
 
-`x ← c(8.04, 18.01, 11.05, 14.05) is.numeric(x)`
+<!-- ``` -->
 
-`x ← c("Chaîne1", "804", "Chaîne3") is.character(x)`
+## Pourquoi faire du R de base ?
 
--   Fonctions utiles sur les vecteurs : length(), class(), names(),
-    summary(), sort(), head(), tail(), unique()
+NB : on peut s'en sortir en manipulation de données sans connaître R de
+base grâce aux packages du tidyverse (mais ça aide quand même)
+
+-   Aide à mieux se servir de dplyr
+
+-   Déboguer des erreurs
+
+-   Solutions alternatives à dplyr dans certains cas
+
+-   Dplyr moins adapté à la programmation et aux fonctions (problème de
+    la *tidy evaluation*)
+
+-   Mieux comprendre le fonctionnement de R
+
+## Les vecteurs : la brique de base
+
+-   Objet élémentaire de R, une dimension (beaucoup de fonctions sont
+    vectorisées)
+-   NB : les colonnes (variables) de nos tableaux de données sont des
+    vecteurs qui ont un nom (le nom de la variable)
+-   Ensemble de valeurs, appelées éléments, **de même nature** (nombres
+    entiers ou décimaux, chaînes de caractères, booléens...). Si ce
+    n'est pas le cas, R va convertir. On peut donner un nom à chaque
+    élément.
+-   Création de vecteurs avec la fonction c()  ou `:` pour une suite de
+    valeurs numériques :
+    -   `x ← c(TRUE, TRUE, FALSE) ; is.logical(x)`
+    -   `x ← c(a=8.04, b=18.01, c=11.05, d=14.05) ; is.numeric(x)`
+    -   `x ← c("Chaîne1", "804", "Chaîne3") ; is.character(x)`
+    -   `x ← 1:5`
+    -   `x ← rep(NA,10)`
+    -   `x ← seq(0,1,0.1)` (par exemple pour calculer des déciles)
+-   Fonctions utiles sur les vecteurs : length(), class(), sort(),
+    unique(), which(), as.<class>()
+
+## Les vecteurs : exemples de code (1/2)
+
+```{r, echo=T}
+y <- c(rep("a",5),rep("b",10),rep("c",5)); print(y) ; as.factor(y)
+
+```
+
+```{r, echo=T}
+which(y=="a") # indices des éléments qui remplissent la condition
+unique(y) # enlève les doublons
+
+```
+
+```{r,echo=TRUE}
+x <- 1:8; print(x);
+seq(0,1,0.1)
+
+```
+
+## Les vecteurs : exemples de code (2/2)
+
+```{r, echo=T}
+x <- c(1, "two", 3.0, TRUE,"29"); print(x); class(x) # un vecteur ne peut être que d'une sorte
+x <- sample(0:1, 10,T); print(x); as.logical(x) # un vecteur ne peut être que d'une sorte
+
+```
+
+```{r, echo=T}
+x <- sample(letters[1:10]);print(x);sort(x);rev(sort(x))
+```
+
+## Les data.frame : tables de données
+
+NB : le **data.frame** est l'objet que l'on manipule le plus
+habituellement (tables du RA, etc.). C'est un tableau de données avec
+des lignes et des colonnes
+
+-   Formellement, un **data.frame** est composé de vecteurs nommés de
+    tailles égales mais pouvant être de types différents (caractère,
+    facteurs, numérique ...).
+
+-   Création avec les fonctions `data.frame()`:
+
+``` r
+
+x ← data.frame(nom=c("Yaël","Luan","Jade"),  # 1er élément : un vecteur « nom » de trois chaînes de caractères`
+                sexe = factor(c("H","F","F")), # 2e élément : un vecteur « sexe » de trois chaînes de caractères (en facteurs)
+                age = c(5,1,3))               # 3e élément : un vecteur « age » de trois numériques 
+
+class(x)    
+                
+```
+
+## Fonctions utiles pour explorer des data.frame
+
+-   `str()` donne la structure de la table (ce que l'on voit dans
+    l'environnement)
+
+-   `names()` le vecteur des noms de colonnes, `rownames()` le vecteur
+    des noms de lignes (indices par défaut)
+
+-   `head()` et `tail()` affichent respectivement, par défaut, les 6
+    premières et les 6 dernières lignes de la table
+
+-   `dim()` renvoie un vecteur de 2 éléments composé du nombre de lignes
+    et du nombre de colonnes de la table
+
+-   `summary()` renvoie un résumé du data.frame (utile pour explorer un
+    jeu de données)
+
+## Data.frame : exemples de code (1/2)
+
+```{r,echo=TRUE}
+str(maTable) 
+summary(maTable) # noter la différence entre les vecteurs caractères et facteurs
+
+```
+
+## Data.frame : exemples de code (2/2)
+
+```{r,echo=TRUE}
+length(maTable) # pourquoi 6 ? le data.frame regroupe 60 valeurs 
+dim(maTable)
+names(maTable)
+rownames(maTable)
+```
+
+## Les listes (un objet fourre-tout)
+
+NB : la **liste** est un objet apparemment moins usuel quand on débute
+avec `dplyr`, mais qui peut être très utile notamment à l'intérieur de
+fonctions (across), pour faire des boucles (purrr) ou bien quand on doit
+ranger dans un unique objet, des objets de toute sorte,
+
+-   Une **liste** est composée d'objets de types et tailles différents
+    (peut-être très utile en sortie de fonction).
+
+-   Création avec la fonctions `list()` :
+
+``` r
+x ← list(c(TRUE, TRUE, FALSE),           # 1er élément : un vecteur de trois booléens
+         c(8.04, 18.01, 11.05, 14.05),   # 2e élément : un vecteur de quatre numériques
+         c(""804"))                      # 3e élément : un vecteur d'une chaîne de caractères
+
+                
+```
+
+NB : un data.frame est une liste de vecteurs de même taille, le résultat
+de length(df) = nb_colonnes Fonctions utiles : `unlist()`, \## Les
+
+## Listes : exemples de code
+
+```{r,echo=TRUE}
+# en donnant des noms à chaque élément de la liste
+maListe <- list(mesLettres=letters,
+                monDF = data_frame(letters,LETTERS),
+                ma2eListe=list("toto",1:10))
+print(maListe)
+
+# sans donner de noms
+liste1 <- list(1:10);liste2 <- list(letters);c(liste1,liste2) 
+
+```
 
 ## Les matrices et arrays :
 
--   Une matrice est composée d'un ou de plusieurs ***éléments de mêmes
-    types***, organisés en ***deux dimensions***.
+NB : objets moins utilisés en traitement de données usuel, plus en
+statistiques
 
-Une array est composée d'un ou de plusieurs éléments de mêmes types,
-organisés en plusieurs dimensions.
+-   Une matrice est composée d'un ou de plusieurs **éléments de mêmes
+    types**, organisés en ***deux dimensions***. Pour information, un
+    array est composé d'un ou de plusieurs éléments de mêmes types,
+    organisés en plusieurs dimensions (un peu comme les cubes
+    d'Agreste).
 
 -   Création de matrice avec la fonction matrix() :
 
-```{.r}
+``` r
 # Création d'une matrice de numériques avec deux lignes et trois colonnes, remplissage par colonne.`
-matrix(c(1,2,3,4,5,6), nrow = 2, ncol = 3) 
+exemple_matrice  <- matrix(c(1,2,3,4,5,6), nrow = 2, ncol = 3) 
 
 #      [,1] [,2] [,3]
 # [1,]    1    3    5
 # [2,]    2    4    6
+
+#Transposée
+t(exemple_matrice)
+#      [,1] [,2]
+# [1,]    1    2
+# [2,]    3    4
+# [3,]    5    6
 ```
 
--   Fonctions utiles : dim(), nrow(), ncol()
-
-## Les listes et data.frame :
-
--   Une **data.frame** est composée de vecteurs nommés de tailles égales
-    mais pouvant être de types différents.
-
--   Une **liste** est composée d'objets différents.
-
--   Création avec les fonctions `data.frame()` et `list()` :
-
-```{.r}
-x ← list(c(TRUE, TRUE, FALSE),           # 1er élément : un vecteur de trois booléens
-         c(8.04, 18.01, 11.05, 14.05),   # 2e élément : un vecteur de quatre numériques
-         c(""804"))                      # 3e élément : un vecteur d'une chaîne de caractères
-         
-`x ← data.frame(nom=c("Yaël","Luan","Jade"),  # 1er élément : un vecteur « nom » de trois chaînes de caractères`
-                sexe = factor(c("H","F","F"), # 2e élément : un vecteur « sexe » de trois chaînes de caractères (en facteurs)
-                age = c(5,1,3))               # 3e élément : un vecteur « age » de trois numériques 
-                
-```
+-   Fonctions utiles : dim(), nrow(), ncol(), t()
