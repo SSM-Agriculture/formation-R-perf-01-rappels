@@ -154,9 +154,10 @@ Création d'une matrice :
 [1,] "Marion"   "Hélène" 
 [2,] "Benjamin" "Raymond"
 ```
-
-Indexation **par position** :
-
-=> `x[1,]` renvoie le vecteur `c("Marion", "Hélène")`
-=> `x[,2]` renvoie le vecteur `c("Hélène", "Raymond")`
-=> `x[2,1]` renvoie `"Benjamin"`
+  
+  
+Indexation **par position** :  
+  
+=> `x[1,]` renvoie le vecteur `c("Marion", "Hélène")`  
+=> `x[,2]` renvoie le vecteur `c("Hélène", "Raymond")`  
+=> `x[2,1]` renvoie `"Benjamin"`  
