@@ -76,12 +76,16 @@ seq(0,1,0.1)
 
 ## Les vecteurs : exemples de code (2/2)
 
+# Exemple sur le type des vecteurs :  
+
 ```{.r}
 x <- c(1, "two", 3.0, TRUE,"29") # un vecteur ne peut être que d'une sorte
 > [1] "1"    "two"  "3"    "TRUE" "29" 
 class(x)
 > [1] "character"
 ```
+
+Tri et renversement des éléments d'un vecteur :  
 
 ```{.r}
 # Création du vecteur x
