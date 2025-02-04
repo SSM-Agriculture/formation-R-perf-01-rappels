@@ -33,8 +33,7 @@ Ce diaporama de formation a été rédigé dans le but d'être le support
 visuel des formations dispensées au
 [MASA](https://agreste.agriculture.gouv.fr/).
 
-Ces formations s'adressent à des agents qui ont suivi **la formation R
-initiation** ou qui sont familiers des outils de manipulation de données (dplyr).\
+Ces formations s'adressent à des agents qui ont suivi [la formation R initiation][https://ssm-agriculture.github.io/formation-R-initiation/] ou qui sont familiers des outils de manipulation de données (dplyr).\
 
 ## Avant-propos
 
