@@ -231,10 +231,14 @@ les intitulés de colonne
     quelles dans la table pivotée (par défaut toutes celles qui ne sont
     pas indiquées dans col_de_noms ou col_de_valeurs)
 
-`maTable %>% pivot_wider(col_de_noms, col_de_valeurs)`
+-   **col_de_noms** = nom de la variable dont les modalités deviendront
+    les intitulés de colonne
 
 -   **col_de_valeurs** = nom de la variable à utiliser pour remplir les
     colonnes
+
+`maTable %>% pivot_wider(col_de_noms, col_de_valeurs)`
+
 
 ## Pivot_longer()
 
@@ -244,12 +248,11 @@ les intitulés de colonne
 
 `maTable %>% pivot_longer( cols = variables_apivoter , names_to = "indicateur", values_to = "valeur")`
 
--   **variables_a_pivoter** = nom de l'ensemble des variables à
-    représenter
+-   **variables_a_pivoter** = nom de l'ensemble des variables à représenter  
 
--   **names_to** = nom de la première colonne à créer
+-   **names_to** = nom de la première colonne à créer  
 
--   **values_to** = nom de la deuxième colonne à créer
+-   **values_to** = nom de la deuxième colonne à créer  
 
 ## Exemples sur les pivots
 
