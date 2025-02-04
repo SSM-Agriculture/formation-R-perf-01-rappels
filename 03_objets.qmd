@@ -8,8 +8,7 @@ editor:
 
 ## Pourquoi faire du R de base ?
 
-NB : on peut s'en sortir en manipulation de données sans connaître R de
-base grâce aux packages du tidyverse (mais ça aide quand même).
+*NB : on peut s'en sortir en manipulation de données sans connaître R de base grâce aux packages du tidyverse (mais ça aide quand même).*
 
 -   Aide à mieux se servir de dplyr
 
@@ -17,17 +16,16 @@ base grâce aux packages du tidyverse (mais ça aide quand même).
 
 -   Solutions alternatives à dplyr dans certains cas
 
--   Dplyr moins adapté à la programmation et aux fonctions (problème de
+-   **dplyr** moins adapté à la programmation et aux fonctions (problème de
     la *tidy evaluation*)
 
 -   Mieux comprendre le fonctionnement de R
 
 ## Les vecteurs : la brique de base
 
--   Objet élémentaire de R, une dimension (beaucoup de fonctions sont
-    vectorisées)
--   NB : les colonnes (variables) de nos tableaux de données sont des
-    vecteurs qui ont un nom (le nom de la variable)
+[Objet élémentaire de R, une dimension (beaucoup de fonctions sont vectorisées)]{.Terre_battue2}  
+
+-   *NB : les colonnes (variables) de nos tableaux de données sont desvecteurs qui ont un nom (le nom de la variable)*
 -   Ensemble de valeurs, appelées éléments, **de même nature** (nombres
     entiers ou décimaux, chaînes de caractères, booléens...). Si ce
     n'est pas le cas, R va convertir. On peut donner un nom à chaque
