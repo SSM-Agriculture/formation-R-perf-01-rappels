@@ -89,16 +89,18 @@ mon_df$letters[1:4]  # avec le symbole $ on a aussi un vecteur qu'on peut indexe
 
 -   Avec **R de base**, on utilise l'opérateur d'affectation :
 
-    -   `table$new_var <- variable` → formule générique
+-   `table$new_var <- variable` → formule générique
 
-    -   `table["new_var"] <- valeur_constante` → création d'une
-        constante
+-   `table$new_var <- valeur_constante` → création d'une constante
 
-    -   `table[["new_var"]] <- valeur_constante` → création d'une
-        constante
+-   `table$new_var <- fonction(table$var1)` → création à partir d'une formule
 
-    -   `table$new_var <- fonction(table$var1)` → création à partir
-        d'une formule
+-   `table$new_var <- table$var1 + table$var2` → création à partir d'opérations
+
+-   `table$new_var <- vecteur1 OU table1$new_var <- table2$var1` → création à partir de variables externes
+
+-   `table$new_var <- ifelse(table$varref < x, val1, val2)` OU
+    `table$new_var <- case_when(table$varref < x ~ val1, TRUE ~ val2)`  → traitement conditionnel
 
 ## Listes
 

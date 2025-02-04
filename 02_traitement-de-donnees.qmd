@@ -81,7 +81,7 @@ summarise(filter(select(maTable,noms_des_colonnes),conditions),total=sum(maVaria
 -   En enlevant celles dont on ne veut pas : `select(-Age)` ou `select(!(Age:Code_postal_residence)`
 
 
-## Création ou modification de variables dans une table (1/3)
+## Création ou modification de variables dans une table (1/2)
 
 Avec le package **dplyr**, on utilise la fonction `mutate()` qui permet
 de créer plusieurs variables à la fois :
@@ -98,7 +98,7 @@ de créer plusieurs variables à la fois :
 
 Pour modifier une variable, on affecte la nouvelle valeur à une variable existante.
 
-## Création ou modification de variables dans une table (2/3)
+## Création ou modification de variables dans une table (2/2)
 
 <br>
 
@@ -112,26 +112,8 @@ Pour modifier une variable, on affecte la nouvelle valeur à une variable exista
 
     `table ← table %>% mutate(new_var1 = var1+var2, .after=ident,.keep="unused")`
 
-Dans cet exemple, la nouvelle variable est placée après ident, et var1
-et var2 sont supprimés
-    
-## Création ou modification de variables dans une table (3/3)
-
--   Voici les syntaxes équivalentes avec **R de base** :
-
--   `table$new_var <- variable` → formule générique
-
--   `table$new_var <- valeur_constante` → création d'une constante
-
--   `table$new_var <- fonction(table$var1)` → création à partir d'une formule
-
--   `table$new_var <- table$var1 + table$var2` → création à partir d'opérations
-
--   `table$new_var <- vecteur1 OU table1$new_var <- table2$var1` → création à partir de variables externes
-
--   `table$new_var <- ifelse(table$varref < x, val1, val2)` OU
-    `table$new_var <- case_when(table$varref < x ~ val1, TRUE ~ val2)`  → traitement conditionnel
-        
+Dans cet exemple, la nouvelle variable est placée après ident, et var1 et var2 sont supprimés
+  
         
 ## Fonctions utiles au traitement des chaînes de caractères
 
