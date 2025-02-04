@@ -90,7 +90,7 @@ mon_df$letters[1:4]  # avec le symbole $ on a aussi un vecteur qu'on peut indexe
 
 ## Création ou modification de variables dans un data.frame en R de base
 
--   Avec **R de base**, on utilise l'opérateur d'affectation :
+Avec **R de base**, on utilise l'opérateur d'affectation :
 
 -   `table$new_var <- variable` → formule générique
 
