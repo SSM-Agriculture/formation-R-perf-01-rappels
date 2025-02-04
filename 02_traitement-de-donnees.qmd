@@ -239,14 +239,10 @@ les intitulés de colonne
 
 ![](img/pivots_exemple.png)
 
-```{.r}
-# Passage de tab1 à tab2 avec la fonction pivot_wider()
-tab2 ← pivot_wider( tab1, names_from = mesure, values_from = temperature)
+`tab2 ← pivot_wider( tab1, names_from = mesure, values_from = temperature)`
 
-# Passage de tab2 à tab1 avec la fonction pivot_longer() 
-tab1 ← pivot_longer(tab2, cols = c(min, max, moy), names_to = "mesure", 
-  values_to = "temperature")
-```
+`tab1 ← pivot_longer(tab2, cols = c(min, max, moy), names_to = "mesure", values_to = "temperature")`
+
 
 ## Autres fonctions utiles de dplyr et tidyr
 
