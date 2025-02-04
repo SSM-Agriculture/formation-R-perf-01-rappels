@@ -105,10 +105,9 @@ Pour modifier une variable, on affecte la nouvelle valeur à une variable exista
 -   Paramètres utiles pour aller plus loin :
 
     -   .after ou .before : pour placer la variable où on le souhaite
-        (dernière colonne par défaut) (pour éviter un `relocate()` après
+        (dernière colonne par défaut) (pour éviter un `relocate()` après)
     -   .keep : pour choisir si on garde les variables qui servent à
-        construire une nouvelle variable (pour éviter un
-        `select(-var1,-var2)` après)
+        construire une nouvelle variable (pour éviter un `select(-var1,-var2)` après)
 
     `table ← table %>% mutate(new_var1 = var1+var2, .after=ident,.keep="unused")`
 
