@@ -39,7 +39,8 @@ Dans une table de données, on peut vouloir :
         guillemets
     -   **Usage de l'opérateur pipe** (%>% ou |>).
         Avec RStudio, le raccourci clavier pour cet opérateur est : **Ctrl +
-        Shift + M**. Permet d'enchaîner les fonctions sans les emboîter:
+        Shift + M**. 
+        Permet d'enchaîner les fonctions sans les emboîter:
 
 ```{.r}
 maTable |> select(noms_des_colonnes) |> filter(conditions) |>  summarise(total=sum(maVariable))
@@ -47,15 +48,6 @@ maTable |> select(noms_des_colonnes) |> filter(conditions) |>  summarise(total=s
 summarise(filter(select(maTable,noms_des_colonnes),conditions),total=sum(maVariable))
 ```
 
-::: columns
-::: {.column width="50%"}
-![](img/clipboard-pipe1.png)
-:::
-
-::: {.column width="50%"}
-![](img/clipboard-pipe2.png)
-:::
-:::
 
 ## Filtre et sélection dans une table (1/2)
 
@@ -80,12 +72,12 @@ summarise(filter(select(maTable,noms_des_colonnes),conditions),total=sum(maVaria
 
 <br>
 
-Différentes façons de sélectionner :  
+[Différentes façons de sélectionner :]{.underline}  
 
 -   En nommant chaque variable une à une : `select(Nom_prenom, Age)`  
 -   En indiquant un vecteur de variables consécutives : `select(Nom_prenom:Code_postal_residence)`  
 -   En donnant les indices des variables : `select(1:3)`  
--   Grâce à de la sélection avec des opérateurs "helpers" (contient, commence par, finit par... : `select(contains("a"),starts_with("P"),ends_with("E"),where(is.numeric), last_col()`
+-   Grâce à de la sélection avec des opérateurs "helpers" (contient, commence par, finit par... : `select(contains("a"),starts_with("P"),ends_with("E"),where(is.numeric), last_col())`
 -   En enlevant celles dont on ne veut pas : `select(-Age)` ou `select(!(Age:Code_postal_residence)`
 
 
