@@ -134,11 +134,11 @@ Attention :
   
 _____________________________________________________________________
 
-NB : Possibilité d'utiliser la fonction `pluck()` du package {purrr} (pour éviter de s'y perdre)
+NB : Possibilité d'utiliser la fonction `pluck()` du package {purrr} (pour éviter de s'y perdre)  
 
    `x <- list(c(TRUE, TRUE, FALSE), c(8.04, 18.01, 11.05, 14.05), "804")`
    
-   => `pluck(x,2)` renvoie le deuxième vecteur de la liste x soit `c(8.04, 18.01, 11.05, 14.05)`
+   => `pluck(x,2)` renvoie le deuxième vecteur de la liste x soit `c(8.04, 18.01, 11.05, 14.05)`  
    => `pluck(x,2,1)` renvoie le premier élément du deuxième vecteur de la liste x soit `8.04`
 
 
