@@ -105,12 +105,18 @@ mon_df$letters[1:4]  # avec le symbole $ on a aussi un vecteur qu'on peut indexe
 ## Listes
 
 Indexation **par position** :
-```{.r}
+
    `x <- list(c(TRUE, TRUE, FALSE), c(8.04, 18.01, 11.05, 14.05), "804")`
-   `x[[2]] renvoie le deuxième vecteur de la liste x soit c(8.04, 18.01, 11.05, 14.05)`
-   `x[[2]][1] renvoie le premier élément du deuxième vecteur de la liste x soit 8.04`
-Attention :
-    `x[2], avec de simples crochets, renvoie une liste composée d'un élément : le 2e vecteur de la liste x`
+   
+   => x[[2]] renvoie le deuxième vecteur de la liste x soit `c(8.04, 18.01, 11.05, 14.05)`  
+   
+   => x[[2]][1] renvoie le premier élément du deuxième vecteur de la liste x soit `8.04`  
+
+::: callout-note
+Attention :  
+   x[2], avec de simples crochets, renvoie une liste composée d'un élément : le 2e vecteur de la liste x
+::: 
+
 ```
 
 Indexation **par nom** si les vecteurs sont nommés avec l'opérateur \$ :
