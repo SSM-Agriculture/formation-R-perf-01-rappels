@@ -298,8 +298,9 @@ chaque type de fichier:
 -   R offre la possibilité d'effectuer des requêtes SQL sur des bases de
     données externes (il faut donc connaître la syntaxe SQL).
 
--   Des informations pour la connexion sont nécessaires :
-    library(RPostgres)
+-   Des informations pour la connexion sont nécessaires :  
+
+`library(RPostgres)`  
 
 `cnx <- dbConnect(Postgres(), dbname = "sirene", port = 5432, host = "00.11.22.33", user = "nom_user", password = "mdp")`
 
