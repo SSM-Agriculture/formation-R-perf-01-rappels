@@ -131,10 +131,9 @@ Attention :
    
    => `x$enf[1]` renvoie le premier élément du vecteur nommé "enf" de la liste x soit `"Marion"`
    
-  
-_____________________________________________________________________
 
-NB : Possibilité d'utiliser la fonction `pluck()` du package {purrr} (pour éviter de s'y perdre)  
+  
+**Possibilité d'utiliser la fonction `pluck()` du package {purrr} (+ pratique pour éviter de s'y perdre)**  
 
    `x <- list(c(TRUE, TRUE, FALSE), c(8.04, 18.01, 11.05, 14.05), "804")`
    
