@@ -10,12 +10,10 @@ slide-tone: false # for blind readers
 chalkboard: false # press the B key to toggle chalkboard
 transition: slide
 fig-cap-location: bottom
-
 toc: true
 toc-title: Sommaire
 toc-depth: 1
 toc-float: true
-
 # multiplex: true
 execute:
   echo: false
@@ -23,6 +21,8 @@ execute:
   cache: false
 editor:
   render-on-save: true
+  markdown: 
+    wrap: 72
 ---
 
 ## Avant-propos
@@ -34,7 +34,7 @@ visuel des formations dispensées au
 [MASA](https://agreste.agriculture.gouv.fr/).
 
 Ces formations s'adressent à des agents qui ont suivi **la formation R
-initiation**.\
+initiation** ou qui sont familiers des outils de manipulation de données (dplyr).\
 
 ## Avant-propos
 
@@ -44,10 +44,10 @@ modules de cette formation sont ajustables suivants le choix des agents.
 ::: callout-note
 ## Champ couvert par cette formation
 
-**Ce support couvre les rappels et complèments sur R et l'environnement
-du MASAF.**
+**Ce support couvre les rappels et compléments sur R et l'environnement
+du MASA.**
 
-Pour information, Les modules de la formation R-perfectionnement sont:
+Pour information, les modules de la formation R-perfectionnement sont:
 
 -   01 - Module Rappels
 
@@ -72,8 +72,8 @@ RStudio Workbench.
 
 {{< include 01_Travailler-avec-R-ministere.qmd >}}
 
-{{< include 02_objets.qmd >}}
+{{< include 02_traitement-de-donnees.qmd >}}
 
-{{< include 03_indexation.qmd >}}
+{{< include 03_objets.qmd >}}
 
-{{< include 04_traitement-de-donnees.qmd >}}
+{{< include 04_indexation.qmd >}}
