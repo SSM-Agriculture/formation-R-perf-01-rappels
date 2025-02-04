@@ -4,7 +4,7 @@ editor:
     wrap: 72
 ---
 
-# Traitement de données avec `dplyr` {.backgroundTitre}
+# Traitement de données avec {dplyr} et {tidyr} {.backgroundTitre}
 
 ## Les tables de données
 
