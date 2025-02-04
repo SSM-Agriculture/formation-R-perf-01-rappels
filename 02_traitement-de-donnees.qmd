@@ -111,7 +111,7 @@ Pour modifier une variable, on affecte la nouvelle valeur à une variable exista
 
     `table ← table %>% mutate(new_var1 = var1+var2, .after=ident,.keep="unused")`
 
-Dans cet exemple, la nouvelle variable `new_var1` est placée après `ident`, et `var1` et `var2` sont supprimés
+Dans cet exemple, la nouvelle variable `new_var1` est placée après `ident`, `var1` et `var2` sont supprimés
   
         
 ## Fonctions utiles au traitement des chaînes de caractères
