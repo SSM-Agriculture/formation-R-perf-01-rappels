@@ -43,6 +43,7 @@ editor:
 
 ## Les vecteurs : exemples de code (1/2)
 
+1er exemple :  
 ```{.r}
 # Création du vecteur y
 y <- c(rep("a",5),rep("b",10),rep("c",5)); 
@@ -53,12 +54,16 @@ as.factor(y)
 Levels: a b c
 ```
 
+Les fonctions `which()` et `unique()` :  
+
 ```{.r}
 which(y=="a") # indices des éléments qui remplissent la condition
 > [1] 1 2 3 4 5
 unique(y) # enlève les doublons
 > [1] "a" "b" "c"
 ```
+
+L'opérateur `:` et la fonction `seq()` :  
 
 ```{.r}
 # Création d'un vecteur de 1 à 8
