@@ -72,8 +72,8 @@ RStudio Workbench.
 
 {{< include 01_Travailler-avec-R-ministere.qmd >}}
 
-{{< include 04_traitement-de-donnees.qmd >}}
+{{< include 02_traitement-de-donnees.qmd >}}
 
-{{< include 02_objets.qmd >}}
+{{< include 03_objets.qmd >}}
 
-{{< include 03_indexation.qmd >}}
+{{< include 04_indexation.qmd >}}

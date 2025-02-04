@@ -1,0 +1,278 @@
+---
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+# Les différents objets R {.backgroundTitre}
+
+## Pourquoi faire du R de base ?
+
+NB : on peut s'en sortir en manipulation de données sans connaître R de
+base grâce aux packages du tidyverse (mais ça aide quand même).
+
+-   Aide à mieux se servir de dplyr
+
+-   Déboguer des erreurs
+
+-   Solutions alternatives à dplyr dans certains cas
+
+-   Dplyr moins adapté à la programmation et aux fonctions (problème de
+    la *tidy evaluation*)
+
+-   Mieux comprendre le fonctionnement de R
+
+## Les vecteurs : la brique de base
+
+-   Objet élémentaire de R, une dimension (beaucoup de fonctions sont
+    vectorisées)
+-   NB : les colonnes (variables) de nos tableaux de données sont des
+    vecteurs qui ont un nom (le nom de la variable)
+-   Ensemble de valeurs, appelées éléments, **de même nature** (nombres
+    entiers ou décimaux, chaînes de caractères, booléens...). Si ce
+    n'est pas le cas, R va convertir. On peut donner un nom à chaque
+    élément.
+-   Création de vecteurs avec la fonction c()  ou `:` pour une suite de
+    valeurs numériques :
+    -   `x ← c(TRUE, TRUE, FALSE) ; is.logical(x)`
+    -   `x ← c(a=8.04, b=18.01, c=11.05, d=14.05) ; is.numeric(x)`
+    -   `x ← c("Chaîne1", "804", "Chaîne3") ; is.character(x)`
+    -   `x ← 1:5`
+    -   `x ← rep(NA,10)`
+    -   `x ← seq(0,1,0.1)` (par exemple pour calculer des déciles)
+-   Fonctions utiles sur les vecteurs : `length()`, `class()`, `sort()`,
+    `unique()`, `which()`, `as.<class>()`...
+
+## Les vecteurs : exemples de code (1/2)
+
+```{.r}
+# Création du vecteur y
+y <- c(rep("a",5),rep("b",10),rep("c",5)); 
+y
+> [1] "a" "a" "a" "a" "a" "b" "b" "b" "b" "b" "b" "b" "b" "b" "b" "c" "c" "c" "c" "c"
+as.factor(y)
+> [1] a a a a a b b b b b b b b b b c c c c c
+Levels: a b c
+```
+
+```{.r}
+which(y=="a") # indices des éléments qui remplissent la condition
+> [1] 1 2 3 4 5
+unique(y) # enlève les doublons
+> [1] "a" "b" "c"
+```
+
+```{.r}
+# Création d'un vecteur de 1 à 8
+1:8
+> [1] 1 2 3 4 5 6 7 8
+# Création d'un vecteur de 0 à 1 avec un pas de 0.1
+seq(0,1,0.1)
+> [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+```
+
+## Les vecteurs : exemples de code (2/2)
+
+```{.r}
+x <- c(1, "two", 3.0, TRUE,"29") # un vecteur ne peut être que d'une sorte
+> [1] "1"    "two"  "3"    "TRUE" "29" 
+class(x)
+> [1] "character"
+```
+
+```{.r}
+# Création du vecteur x
+x <- sample(letters[1:10]);
+# Tri des éléments du vecteur x
+sort(x)
+> [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j"
+# Renverse l'ordre des éléments du vecteur x
+rev(sort(x))
+> [1] "j" "i" "h" "g" "f" "e" "d" "c" "b" "a"
+```
+
+## Les data.frame : tables de données
+
+NB : le **data.frame** est l'objet que l'on manipule le plus
+habituellement (tables du RA, etc.). C'est un tableau de données avec
+des lignes et des colonnes
+
+-   Formellement, un **data.frame** est composé de vecteurs nommés de
+    tailles égales mais pouvant être de types différents (caractère,
+    facteurs, numérique ...).
+
+-   Création avec les fonctions `data.frame()`:
+
+```{.r}
+x <- data.frame(nom=c("Yaël","Luan","Jade"),   # 1er élément : un vecteur « nom » de trois chaînes de caractères`
+               sexe = factor(c("H","F","F")),  # 2e élément : un vecteur « sexe » de trois chaînes de caractères (en facteurs)
+               age = c(5,1,3))                 # 3e élément : un vecteur « age » de trois numériques 
+>
+   nom sexe age
+1 Yaël    H   5
+2 Luan    F   1
+3 Jade    F   3
+```
+
+## Fonctions utiles pour explorer des data.frame
+
+-   `str()` donne la structure de la table (ce que l'on voit dans
+    l'environnement)
+
+-   `names()` le vecteur des noms de colonnes, `rownames()` le vecteur
+    des noms de lignes (indices par défaut)
+
+-   `head()` et `tail()` affichent respectivement, par défaut, les 6
+    premières et les 6 dernières lignes de la table
+
+-   `dim()` renvoie un vecteur de 2 éléments composé du nombre de lignes
+    et du nombre de colonnes de la table
+
+-   `summary()` renvoie un résumé du data.frame (utile pour explorer un
+    jeu de données)
+
+## Data.frame : exemples de code (1/3)
+
+```{.r}
+str(maTable) 
+summary(maTable) # noter la différence entre les vecteurs caractères et facteurs
+
+```
+
+## Data.frame : exemples de code (2/3)
+
+```{.r}
+maTable <- data.frame(
+  cat=rep(letters[1:2],5),             # 5 Répétitions des lettres 'a' et 'b' 
+  var1= runif(10,max = 10),            # 10 valeurs aléatoires uniformément distribuées entre 0 et 10
+  var2= rnorm(10,sd = 100),            # 10 valeurs tirées d'une distrib; normale avec une moy; de 0 et un sd de 100
+  var3=c(rep(NA,3),sample(1:10,7,T)),  # 3 valeurs NA suivies de 7 valeurs aléatoires entre 1 et 10
+  fact1=factor(rep(LETTERS[1:5],2)),   # un facteur composé de 2 répétitions des lettres 'A', 'B', 'C', 'D' et 'E'
+  majuscule = LETTERS[1:10],           # les 10 premières lettres majuscules de l'alphabet
+  logique=sample(c(T,F),10,T))         # 10 valeurs booléennes aléatoires
+```
+
+```{.r}
+> maTable
+   cat     var1       var2 var3 fact1 majuscule logique
+1    a 8.625657   40.51943   NA     A         A   FALSE
+2    b 6.394318  110.42277   NA     B         B    TRUE
+3    a 7.351903   57.75785   NA     C         C    TRUE
+4    b 7.222472  -39.86580    4     D         D    TRUE
+5    a 7.297473 -186.24480    7     E         E   FALSE
+6    b 2.516919  -39.21729   10     A         F   FALSE
+7    a 0.143648  101.97522    9     B         G   FALSE
+8    b 4.199952  -73.90209    8     C         H    TRUE
+9    a 4.149988   15.82927   10     D         I   FALSE
+10   b 8.856342   56.02326    1     E         J   FALSE
+```
+
+## Data.frame : exemples de code (3/3)
+
+```{.r}
+length(maTable) # pourquoi 7 ?
+> [1] 7
+dim(maTable)
+> [1] 10  7
+names(maTable)
+[1] "cat"       "var1"      "var2"      "var3"      "fact1"     "majuscule" "logique" 
+```
+
+## Les listes (un objet fourre-tout)
+
+NB : la **liste** est un objet apparemment moins usuel quand on débute
+avec `dplyr`, mais qui peut être très utile notamment à l'intérieur de
+fonctions (across), pour faire des boucles (purrr) ou bien quand on doit
+ranger dans un unique objet, des objets de toute sorte,
+
+-   Une **liste** est composée d'objets de types et tailles différents
+    (peut-être très utile en sortie de fonction).
+
+-   Création avec la fonctions `list()` :
+
+```{.r}
+x ← list(c(TRUE, TRUE, FALSE),           # 1er élément : un vecteur de trois booléens
+         c(8.04, 18.01, 11.05, 14.05),   # 2e élément : un vecteur de quatre numériques
+         c(804"))                        # 3e élément : un vecteur d'une chaîne de caractères
+```
+
+*NB : un data.frame est une liste de vecteurs de même taille.*
+
+## Listes : exemples de code (1/2)
+
+```{.r}
+# En nommant chaque élément de la liste
+list(mesLettres=letters,
+     monDF = data_frame(letters,LETTERS),
+     ma2eListe=list("toto",1:10))
+     
+# > $mesLettres
+ [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"
+
+$monDF
+# A tibble: 26 × 2
+   letters LETTERS
+   <chr>   <chr>  
+ 1 a       A      
+ 2 b       B      
+ 3 c       C      
+# ℹ 24 more rows
+# ℹ Use `print(n = ...)` to see more rows
+
+$ma2eListe
+$ma2eListe[[1]]
+[1] "toto"
+
+$ma2eListe[[2]]
+ [1]  1  2  3  4  5  6  7  8  9 10 
+
+# sans donner de noms
+liste1 <- list(1:10);liste2 <- list(letters);c(liste1,liste2) 
+```
+
+## Listes : exemples de code (2/2)
+
+```{.r}
+# sans donner de noms
+liste1 <- list(1:10)
+
+liste2 <- list(letters)
+
+# Concaténation des 2 listes
+c(liste1,liste2) 
+
+> 
+[[1]]
+ [1]  1  2  3  4  5  6  7  8  9 10
+
+[[2]]
+ [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"
+```
+
+## Les matrices :
+
+*NB : objets moins utilisés en traitement de données usuel, plus en statistiques*
+
+-   Une matrice est composée d'un ou de plusieurs **éléments de mêmes
+    types**, organisés en ***deux dimensions***. 
+
+
+-   Création de matrice avec la fonction matrix() :
+
+```{.r}
+# Création d'une matrice de numériques avec deux lignes et trois colonnes, remplissage par colonne.`
+exemple_matrice  <- matrix(c(1,2,3,4,5,6), nrow = 2, ncol = 3) 
+
+#      [,1] [,2] [,3]
+# [1,]    1    3    5
+# [2,]    2    4    6
+
+#Transposée
+t(exemple_matrice)
+#      [,1] [,2]
+# [1,]    1    2
+# [2,]    3    4
+# [3,]    5    6
+```
+
+-   Fonctions utiles : `dim()`, `nrow()`, `ncol()`, `t()`...
