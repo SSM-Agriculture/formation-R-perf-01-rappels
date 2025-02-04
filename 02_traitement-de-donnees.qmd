@@ -199,7 +199,7 @@ Pour réorganiser une table, c'est à dire passer des lignes en colonnes
 ou inversement, on utilise les fonctions `pivot_wider()` et
 `pivot_longer()` du package tidyr.
 
-## Pivot_wider()
+## pivot_wider()
 
 <br>
 
@@ -221,7 +221,7 @@ les intitulés de colonne
 `maTable %>% pivot_wider(col_de_noms, col_de_valeurs)`
 
 
-## Pivot_longer()
+## pivot_longer()
 
 <br>
 
