@@ -15,20 +15,26 @@ editor:
 
 -   Ajouter un élément (ex : une nouvelle variable à un data.frame)
 
-```{r,echo=TRUE}
+```{.r}
 nombres <-  1:20
 nombres[nombres>10]
+
+# > [1] 11 12 13 14 15 16 17 18 19 20
 
 mes_lettres <- letters[1:5]
 mes_lettres[3] <- "g"
 mes_lettres
 
+# > [1] "a" "b" "g" "d" "e"
+
 mon_df <- data.frame(letters,LETTERS)
 mon_df["concat"] <- paste0(letters,LETTERS)
 mon_df[1,]
+
+# >   letters LETTERS concat
+1       a       A     aA
 ```
 
-...
 
 ## Vecteur, indexation avec les crochets:
 
