@@ -247,6 +247,10 @@ $monDF
 # ℹ 24 more rows
 # ℹ Use `print(n = ...)` to see more rows
 
+```
+
+
+```{.r}
 $ma2eListe
 $ma2eListe[[1]]
 [1] "toto"
@@ -254,14 +258,12 @@ $ma2eListe[[1]]
 $ma2eListe[[2]]
  [1]  1  2  3  4  5  6  7  8  9 10 
 
-# sans donner de noms
-liste1 <- list(1:10);liste2 <- list(letters);c(liste1,liste2) 
 ```
 
 ## Listes : exemples de code (2/2)
 
 ```{.r}
-# sans donner de noms
+# Sans donner de noms
 liste1 <- list(1:10)
 
 liste2 <- list(letters)
@@ -277,15 +279,14 @@ c(liste1,liste2)
  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"
 ```
 
-## Les matrices :
+## Les matrices
 
-*NB : objets moins utilisés en traitement de données usuel, plus en statistiques*
+Objets moins utilisés en traitement de données usuel, plus en statistiques.  
 
--   Une matrice est composée d'un ou de plusieurs **éléments de mêmes
-    types**, organisés en ***deux dimensions***. 
+-   Une matrice est composée d'un ou de plusieurs **éléments de mêmes types**, organisés en **deux dimensions**.
 
 
--   Création de matrice avec la fonction matrix() :
+-   Création de matrice avec la fonction `matrix()` :
 
 ```{.r}
 # Création d'une matrice de numériques avec deux lignes et trois colonnes, remplissage par colonne.`
