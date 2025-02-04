@@ -255,8 +255,8 @@ les intitulés de colonne
 -   `relocate()` : déplacer une variable (avec .after et .before)
 -   `count()` : compter le nombre d'observation pour chaque/un croisement de modalités
 -   `pull()`: pour extraire un vecteur à partir d'un data.frame
--   `replace_na()` : remplacer toutes les valeurs manquantes NA par une valeur donnée
--   `drop_na()` : supprimer des lignes qui comportent des NA
+-   `replace_na()` : remplacer toutes les valeurs manquantes NA par une valeur donnée ({tidyr})
+-   `drop_na()` : supprimer des lignes qui comportent des NA ({tidyr})
 
 
 ## Lecture ou écriture de fichiers (1/2)
