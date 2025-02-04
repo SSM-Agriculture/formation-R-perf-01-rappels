@@ -74,6 +74,9 @@ mon_df[1,]
 
 ## Data.frame (3/3) : exemple de code
 
+Quelques lignes de code utiles en R de base :  
+
+
 ```{.r}
 
 mon_df <- data.frame(letters,LETTERS) # création du data.frame avec les lettres de l'alphabet
