@@ -74,17 +74,17 @@ mon_df[1,]
 
 ## Data.frame (3/3) : exemple de code
 
-```{r,echo=TRUE,eval=F}
+```{.r}
 
 mon_df <- data.frame(letters,LETTERS) # création du data.frame avec les lettres de l'alphabet
 mon_df[1,] # un data.frame avec uniquement la 1ère ligne
 mon_df[,1] # un vecteur avec la 1ère colonne,
-mon_df$letters[1:4]  # idem que ci-dessus mais comme c'est un vecteur je peux l'indexer aussi (4 premières valeurs)
-mon_df["letters"] # attention si pas de virgule, renvoie un data.frame d'une colonne
+mon_df["letters"] # attention si pas de virgule, renvoie un data.frame d'une seule colonne
 mon_df[["letters"]] # pour extraire le vecteur, il faut mettre deux crochets
+mon_df$letters[1:4]  # avec le symbole $ on a aussi un vecteur qu'on peut indexer aussi (4 premières valeurs)
 ```
 
-```{r}
+```{.r}
 
 mon_df <- data.frame(letters,LETTERS) # création du data.frame avec les lettres de l'alphabet
 mon_df[1,] # un data.frame avec uniquement la 1ère ligne
