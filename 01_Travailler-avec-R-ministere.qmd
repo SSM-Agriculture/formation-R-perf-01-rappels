@@ -1,50 +1,22 @@
 # Travailler avec R au ministère {.backgroundTitre}
 
-<!-- ## Présentation de R avec RStudio -->
 
-<!-- <br> -->
+## Présentation
 
-<!-- **RStudio** = interface qu'on utilise au quotidien :  -->
+Logiciel de traitement de données et analyse statistique :
 
-<!-- -   permet le traitement de données et analyse statistique avec **R** ( = langage de programmation, ce qu'il y a sous le capot) : -->
+-   offre un environnement interactif de développement statistique, analytique et graphique ;
 
-<!-- -   offre un environnement interactif de développement statistique, analytique et graphique  ; -->
+-   est doté d’un langage de programmation R ;
 
-<!-- -   permet d'accéder à des données, de les manipuler et les analyser ; -->
+-   permet d’accéder à des données, de les manipuler et les analyser ;
 
-<!-- -   s'interface avec les bases de données : Oracle, SYBASE, PostgreSQL, SQLITE... -->
+-   S'interface avec les bases de données : Oracle, SYBASE, PostgreSQL, SQLITE…
 
-<!-- <!-- Remplace SAS ou SPSS -->
+Remplace SAS ou SPSS
 
-<!-- <!-- Logiciel IDE : Integrated Development Environment -->
+Logiciel IDE : Integrated Development Environment
 
-<!-- ## Avantages et inconvénients de R -->
-
-<!-- +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+ -->
-
-<!-- | Avantages                                                                      | **Inconvénients**                                                           | -->
-
-<!-- +:===============================================================================+:============================================================================+ -->
-
-<!-- | -   logiciel gratuit et open source                                            | -   langage informatique nouveau à appréhender                             | -->
-
-<!-- +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+ -->
-
-<!-- | -   développement actif : communauté d’utilisateurs importante                 | -   pas de génération de code par « clic-bouton »                           | -->
-
-<!-- +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+ -->
-
-<!-- | -   nombreux packages (« outils ») scientifiques                               | -   compatibilité des versions                                              | -->
-
-<!-- +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+ -->
-
-<!-- | -   très bonnes capacités graphiques                                           | -   calculs sur de grosses volumétries plus « gourmand » en CPUs et mémoire | -->
-
-<!-- +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+ -->
-
-<!-- | -   rapidité d'accès aux données (R travaille en mémoire)                      | -   documentation et aide souvent disponibles qu'en anglais                 | -->
-
-<!-- +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------+ -->
 
 ## Comment travailler avec R au MASA ?
 
