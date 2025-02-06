@@ -39,6 +39,22 @@ Existence d'une plate-forme CERISE de **Préproduction** :\
 
 ![](img/clipboard-console.png){fig-align="center"}
 
+
+## Organisation sous CERISE
+
+Cerise est organisé en plusieurs répertoires :
+
+-   **00-Espace-Personnel** =\> espaces personnels des agents, **accessible par l’agent uniquement**
+
+-   **01-Espace-de-Partage** =\> lieu de partage général entre les différents acteurs
+
+-   **02-Espace-de-Production** =\> plateforme de stockage des données brutes collectées, ainsi que des fichiers de données et programmes issus des traitements statistiques réalisés par l'équipe projet
+
+-   **03-Espace-de-Diffusion** =\> mise à disposition au sein du SSM des données issues des traitements statistiques réalisés en amont =\> Ces deux derniers espaces sont découpés par opérations statistiques
+
+-   **04-Espace-Echanges** =\> stockage des fichiers de données à transmettre aux autres applications du SI CASSIS (par exemple Agreste) ainsi qu'aux SI des partenaires extérieurs
+
+
 ## Généralités sur R avec RStudio
 
 On utilise des packages (ensemble de fonctions) qu'il faut installer puis charger (sinon erreur!). Par exemple:
