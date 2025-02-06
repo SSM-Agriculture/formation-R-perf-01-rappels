@@ -308,3 +308,12 @@ chaque type de fichier:
     fonction dbGetQuery :
 
 `dbGetQuery(cnx, "SELECT * FROM TABLE")`
+
+## Exercices
+
+<br>
+<br>
+<br>
+<br>
+
+![](img/exercices.png){fig-align="center"}
