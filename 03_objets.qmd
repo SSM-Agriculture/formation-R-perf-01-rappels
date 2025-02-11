@@ -220,7 +220,7 @@ ranger dans un unique objet, des objets de toute sorte.
 ```{.r}
 x ← list(c(TRUE, TRUE, FALSE),           # 1er élément : un vecteur de trois booléens
          c(8.04, 18.01, 11.05, 14.05),   # 2e élément : un vecteur de quatre numériques
-         c(804"))                        # 3e élément : un vecteur d'une chaîne de caractères
+         c("804"))                        # 3e élément : un vecteur d'une chaîne de caractères
 ```
   
   
