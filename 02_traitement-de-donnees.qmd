@@ -53,7 +53,7 @@ summarise(filter(select(maTable,noms_des_colonnes),conditions),total=sum(maVaria
 
 -   Pour filtrer les lignes dans une table à l'aide de conditions logiques, on utilise la fonction `filter()`  
 
-    `maTable %>% select(noms_des_colonnes)`
+    `maTable %>% filter(conditions)`
 
 -   Pour sélectionner des colonnes dans une table, on utilise la
     fonction `select()`
