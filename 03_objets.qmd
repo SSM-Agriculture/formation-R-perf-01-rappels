@@ -32,12 +32,12 @@ editor:
     élément.
 -   Création de vecteurs avec la fonction c()  ou `:` pour une suite de
     valeurs numériques :
-    -   `x ← c(TRUE, TRUE, FALSE) ; is.logical(x)`
-    -   `x ← c(a=8.04, b=18.01, c=11.05, d=14.05) ; is.numeric(x)`
-    -   `x ← c("Chaîne1", "804", "Chaîne3") ; is.character(x)`
-    -   `x ← 1:5`
-    -   `x ← rep(NA,10)`
-    -   `x ← seq(0,1,0.1)` (par exemple pour calculer des déciles)
+    -   `x <- c(TRUE, TRUE, FALSE) ; is.logical(x)`
+    -   `x <- c(a=8.04, b=18.01, c=11.05, d=14.05) ; is.numeric(x)`
+    -   `x <- c("Chaîne1", "804", "Chaîne3") ; is.character(x)`
+    -   `x <- 1:5`
+    -   `x <- rep(NA,10)`
+    -   `x <- seq(0,1,0.1)` (par exemple pour calculer des déciles)
 -   Fonctions utiles sur les vecteurs : `length()`, `class()`, `sort()`,
     `unique()`, `which()`, `as.<class>()`...
 
