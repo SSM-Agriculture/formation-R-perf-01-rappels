@@ -1,4 +1,9 @@
+<!-- badges: start -->
+[![render](https://github.com/SSM-Agriculture/formation-R-perf-01-rappels/actions/workflows/publish.yaml/badge.svg)](https://github.com/SSM-Agriculture/formation-R-perf-01-rappels/actions)
+<!-- badges: end -->
+
 # formation-R-perf-01-rappels
+
 Support de présentation pour la formation R perfectionnement - module rappels
 
 Cette formation R perfectionnement est dispensée au [MASAF](https://agriculture.gouv.fr/)
