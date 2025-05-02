@@ -170,10 +170,6 @@ iris %>%
   summarise(q = quantile(Petal.Length, probs = c(0.25, 0.5, 0.75)))
 ```
 
-<br>
-<br>
-
-
 ```         
 # Groups:   Species [3]
   Species        q
@@ -203,9 +199,6 @@ iris %>%
   group_by(Species) %>%
   reframe(q = quantile(Petal.Length, probs = c(0.25, 0.5, 0.75)))
 ```
-
-<br>
-<br>
 
 
 ```         
