@@ -49,7 +49,7 @@ summarise(filter(select(maTable,noms_des_colonnes),conditions),total=sum(maVaria
 ```
 
 
-## Filtre et sélection dans une table (1/2)
+## Filtre et sélection dans une table
 
 -   Pour filtrer les lignes dans une table à l'aide de conditions logiques, on utilise la fonction `filter()`  
 
