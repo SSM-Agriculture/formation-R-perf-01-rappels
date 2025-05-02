@@ -65,7 +65,7 @@ summarise(filter(select(maTable,noms_des_colonnes),conditions),total=sum(maVaria
 
 [ma_table %\>% filter(Age \< 30) %\>% select(Nom_prenom)]{.Macaron2}
 
-![](img/clipboard-filtre2.png){width="66%" height="66%"}
+![](img/clipboard-filtre2.png){width="80%" height="40%"}
 
 
 ## Sélection des colonnes dans une table
