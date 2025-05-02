@@ -201,7 +201,7 @@ Exemple avec `reframe()` :
 # Pas d'avertissement avec reframe
 iris %>%
   group_by(Species) %>%
-  summarise(q = quantile(Petal.Length, probs = c(0.25, 0.5, 0.75)))
+  reframe(q = quantile(Petal.Length, probs = c(0.25, 0.5, 0.75)))
 ```
 
 <br>
