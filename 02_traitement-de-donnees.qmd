@@ -16,14 +16,15 @@ Dans une table de données, on peut vouloir :
     observations
 -   faire une jointure avec une autre table
 -   transposer ou faire pivoter la table
--   etc.  
+-   etc.
 
 ![](img/clipboard-tab1.png)
 
-
 ## Packages *dplyr* et *tidyr*
 
--  [Objectif de *dplyr* : rassembler dans un seul package les outils de manipulation de données les plus importants pour l'analyse des données]{.Terre_battue2}
+-   [Objectif de *dplyr* : rassembler dans un seul package les outils de
+    manipulation de données les plus importants pour l'analyse des
+    données]{.Terre_battue2}
 
     ⇒ ensemble de fonctions correspondant à un ensemble d'opérations
     élémentaires
@@ -37,29 +38,27 @@ Dans une table de données, on peut vouloir :
         principe : le 1er paramètre est la table de données sur laquelle
         on travaille. Les noms de variable n'ont pas besoin d'être en
         guillemets
-    -   **Usage de l'opérateur pipe** (%>% ou |>).
-        Avec RStudio, le raccourci clavier pour cet opérateur est : **Ctrl +
-        Shift + M**. 
+    -   **Usage de l'opérateur pipe** (%\>% ou \|\>). Avec RStudio, le
+        raccourci clavier pour cet opérateur est : **Ctrl + Shift + M**.
         Permet d'enchaîner les fonctions sans les emboîter:
 
-```{.r}
+``` r
 maTable |> select(noms_des_colonnes) |> filter(conditions) |>  summarise(total=sum(maVariable))
 # Au lieu de :
 summarise(filter(select(maTable,noms_des_colonnes),conditions),total=sum(maVariable))
 ```
 
-
 ## Filtre et sélection dans une table
 
--   Pour filtrer les lignes dans une table à l'aide de conditions logiques, on utilise la fonction `filter()`  
+-   Pour filtrer les lignes dans une table à l'aide de conditions
+    logiques, on utilise la fonction `filter()`
 
     `maTable %>% filter(conditions)`
 
 -   Pour sélectionner des colonnes dans une table, on utilise la
     fonction `select()`
-    
-     `maTable %>% select(noms_des_colonnes)`
 
+    `maTable %>% select(noms_des_colonnes)`
 
 [ma_table %\>% filter(Profession == "Militaire")]{.Bourgeon2}
 
@@ -67,36 +66,44 @@ summarise(filter(select(maTable,noms_des_colonnes),conditions),total=sum(maVaria
 
 ![](img/clipboard-filtre2.png){width="80%" height="40%"}
 
-
 ## Sélection des colonnes dans une table
 
 <br>
 
-[Différentes façons de sélectionner :]{.underline}  
+[Différentes façons de sélectionner :]{.underline}
 
--   En nommant chaque variable une à une : `select(Nom_prenom, Age)`  
--   En indiquant un vecteur de variables consécutives : `select(Nom_prenom:Code_postal_residence)`  
--   En donnant les indices des variables : `select(1:3)`  
--   Grâce à de la sélection avec des opérateurs "helpers" (contient, commence par, finit par... : `select(contains("a"),starts_with("P"),ends_with("E"),where(is.numeric), last_col())`
--   En enlevant celles dont on ne veut pas : `select(-Age)` ou `select(!(Age:Code_postal_residence))`
-
+-   En nommant chaque variable une à une : `select(Nom_prenom, Age)`\
+-   En indiquant un vecteur de variables consécutives :
+    `select(Nom_prenom:Code_postal_residence)`\
+-   En donnant les indices des variables : `select(1:3)`\
+-   Grâce à de la sélection avec des opérateurs "helpers" (contient,
+    commence par, finit par... :
+    `select(contains("a"),starts_with("P"),ends_with("E"),where(is.numeric), last_col())`
+-   En enlevant celles dont on ne veut pas : `select(-Age)` ou
+    `select(!(Age:Code_postal_residence))`
 
 ## Création ou modification de variables dans une table (1/2)
 
 Avec le package **dplyr**, on utilise la fonction `mutate()` qui permet
 de créer plusieurs variables à la fois :
 
--   `table ← table %>% mutate(new_var1 = var1, newvar2 = var2)` →  formule générique
+-   `table ← table %>% mutate(new_var1 = var1, newvar2 = var2)` →
+    formule générique
 
--   `table ← table %>% mutate(new_var1 = constante)` → création d'une constante
+-   `table ← table %>% mutate(new_var1 = constante)` → création d'une
+    constante
 
--   `table ← table %>% mutate(new_var2 = fonction(var1))` → création à partir d'une formule
+-   `table ← table %>% mutate(new_var2 = fonction(var1))` → création à
+    partir d'une formule
 
--   `table ← table %>% mutate(new_var3 = var1 + var2)` → création à partir d'opérations arithmétiques
+-   `table ← table %>% mutate(new_var3 = var1 + var2)` → création à
+    partir d'opérations arithmétiques
 
--   `table ← table %>% mutate(new_var4 = vecteur1)` → création à partir de variables externes
+-   `table ← table %>% mutate(new_var4 = vecteur1)` → création à partir
+    de variables externes
 
-Pour modifier une variable, on affecte la nouvelle valeur à une variable existante.
+Pour modifier une variable, on affecte la nouvelle valeur à une variable
+existante.
 
 ## Création ou modification de variables dans une table (2/2)
 
@@ -105,15 +112,141 @@ Pour modifier une variable, on affecte la nouvelle valeur à une variable exista
 -   Paramètres utiles pour aller plus loin :
 
     -   .after ou .before : pour placer la variable où on le souhaite
-        (dernière colonne par défaut) (pour éviter un `relocate()` après)
+        (dernière colonne par défaut) (pour éviter un `relocate()`
+        après)
     -   .keep : pour choisir si on garde les variables qui servent à
-        construire une nouvelle variable (pour éviter un `select(-var1,-var2)` après)
+        construire une nouvelle variable (pour éviter un
+        `select(-var1,-var2)` après)
 
     `table ← table %>% mutate(new_var1 = var1+var2, .after=ident,.keep="unused")`
 
-Dans cet exemple, la nouvelle variable `new_var1` est placée après `ident`, `var1` et `var2` sont supprimés
-  
-        
+Dans cet exemple, la nouvelle variable `new_var1` est placée après
+`ident`, `var1` et `var2` sont supprimés
+
+## La fonction reframe (1/4)
+
+Avez-vous déjà rencontré ce message d'avertissement lorsque vous
+utilisez la fonction `summarise()` ?
+
+```         
+Warning message:
+Returning more (or less) than 1 row per `summarise()` group was
+deprecated in dplyr 1.1.0.
+ℹ Please use `reframe()` instead.
+ℹ When switching from `summarise()` to `reframe()`, remember that
+  `reframe()` always returns an ungrouped data frame and adjust
+  accordingly.
+```
+
+<br>
+
+Si oui, vous pouvez vous en débarasser en utilisant la fonction
+`reframe()`.
+
+## La fonction reframe (2/4)
+
+Par rapport à la fonction `summarise()`, la fonction `reframe()` (dplyr
+\>= 1.1.0) est utile lorsqu'on souhaite **retourner plusieurs lignes par
+groupe** de manière explicite et propre.
+
+Cela arrive par exemple lorsqu'on calcule des quantiles, des top N ...
+
+<br>
+
+La fonction `summarise()` est toujours valable et utilisable lorsqu'on
+souhaite **retourner une seule ligne par groupe** mais vous affichera un
+message d'avertissement lors des regroupements avec plusieurs lignes.
+
+## La fonction reframe (3/4)
+
+::::: columns
+::: {.column width="50%"}
+Exemple avec `summarise()` :
+
+``` r
+# Cette utilisation de summarise déclenche un avertissement
+iris %>%
+  group_by(Species) %>%
+  summarise(q = quantile(Petal.Length, probs = c(0.25, 0.5, 0.75)))
+```
+
+<br>
+<br>
+
+
+```         
+# Groups:   Species [3]
+  Species        q
+  <fct>      <dbl>
+1 setosa      1.4 
+2 setosa      1.5 
+3 setosa      1.58
+4 versicolor  4   
+5 versicolor  4.35
+6 versicolor  4.6 
+7 virginica   5.1 
+8 virginica   5.55
+9 virginica   5.88
+Warning message:
+Returning more (or less) than 1 row per `summarise()` group was
+deprecated in dplyr 1.1.0.
+ℹ Please use `reframe()` instead.
+```
+:::
+
+::: {.column width="50%"}
+Exemple avec `reframe()` :
+
+``` r
+# Pas d'avertissement avec reframe
+iris %>%
+  group_by(Species) %>%
+  summarise(q = quantile(Petal.Length, probs = c(0.25, 0.5, 0.75)))
+```
+
+<br>
+<br>
+
+
+```         
+# A tibble: 9 × 2
+  Species        q
+  <fct>      <dbl>
+1 setosa      1.4 
+2 setosa      1.5 
+3 setosa      1.58
+4 versicolor  4   
+5 versicolor  4.35
+6 versicolor  4.6 
+7 virginica   5.1 
+8 virginica   5.55
+9 virginica   5.88
+```
+:::
+:::::
+
+## La fonction reframe (4/4)
+
+Quelques remarques supplémentaires entre `summarise()` et `reframe()`
+:
+
+-   `reframe()` renvoit toujours un data.frame **non groupé** tandis que
+    `summarise()` peut renvoyer un data.frame groupé ou non en fonction
+    du choix fait dans l'argument `.groups`.
+
+Utilisation de `.groups` avec summarise() :
+
+| Valeur                 | Comportement                                   |
+|------------------------|------------------------------------------------|
+| `"drop_last"` (défaut) | Supprime le dernier niveau de regroupement     |
+| `"drop"`               | Supprime tous les groupements (df non groupée) |
+| `"keep"`               | Conserve tous les niveaux de groupement        |
+| `"rowwise"`            | Groupe ligne à ligne                           |
+
+
+- Comme la fonction `summarise()`, la fonction `reframe()` **accepte l'argument `.by`** pour éviter d'écrire un group_by() et **est compatible avec la fonction across()** (voir plus loin).
+
+
 ## Fonctions utiles au traitement des chaînes de caractères
 
 ![](img/clipboard-recap-fonctions.png)
@@ -182,14 +315,20 @@ fonction *desc()*.
 
 `maTable %>% summarise(fonctions_stat(variable), .by=var_groupe)`
 
-→ possibilité de calculer plusieurs statistiques en séparant les instructions par une virgule
+→ possibilité de calculer plusieurs statistiques en séparant les
+instructions par une virgule
 
-→ on peut utiliser les fonctions statistiques de base telles que max, min, mean, median, sqrt, sd, n,...
+→ on peut utiliser les fonctions statistiques de base telles que max,
+min, mean, median, sqrt, sd, n,...
 
-→ La fonction ungroup() permet de ne plus tenir compte du regroupement par la suite.
+→ La fonction ungroup() permet de ne plus tenir compte du regroupement
+par la suite.
 
-→ Voir également l'argument [.groups](https://dplyr.tidyverse.org/reference/summarise.html) de la fonction summarise() qui permet de gérer les niveaux de regroupement d'une table. Voir [cet exemple](https://gist.github.com/ddotta/58b9e3d41518576958a7b0e4924da57e).
-
+→ Voir également l'argument
+[.groups](https://dplyr.tidyverse.org/reference/summarise.html) de la
+fonction summarise() qui permet de gérer les niveaux de regroupement
+d'une table. Voir [cet
+exemple](https://gist.github.com/ddotta/58b9e3d41518576958a7b0e4924da57e).
 
 ## Transposition ou réorganisation de table (tidyr)
 
@@ -220,7 +359,6 @@ les intitulés de colonne
 
 `maTable %>% pivot_wider(col_de_noms, col_de_valeurs)`
 
-
 ## pivot_longer()
 
 <br>
@@ -229,11 +367,12 @@ les intitulés de colonne
 
 `maTable %>% pivot_longer( cols = variables_apivoter , names_to = "indicateur", values_to = "valeur")`
 
--   **variables_a_pivoter** = nom de l'ensemble des variables à représenter  
+-   **variables_a_pivoter** = nom de l'ensemble des variables à
+    représenter
 
--   **names_to** = nom de la première colonne à créer  
+-   **names_to** = nom de la première colonne à créer
 
--   **values_to** = nom de la deuxième colonne à créer  
+-   **values_to** = nom de la deuxième colonne à créer
 
 ## Exemples sur les pivots
 
@@ -243,26 +382,30 @@ les intitulés de colonne
 
 `tab1 ← pivot_longer(tab2, cols = c(min, max, moy), names_to = "mesure", values_to = "temperature")`
 
-
 ## Autres fonctions utiles de dplyr et tidyr
 
 <br>
 
--   `case_when()` : en complément d'un mutate, pour modifier des valeurs ou modalités selon certaines conditions
--   `slice()` et dérivés: une autre façon de filtrer les lignes (ex : n plus grandes/petites valeurs d'une variable)
--   `distinct()` : gérer des doublons ou connaître les modalités d'une ou d'un groupe de variables
+-   `case_when()` : en complément d'un mutate, pour modifier des valeurs
+    ou modalités selon certaines conditions
+-   `slice()` et dérivés: une autre façon de filtrer les lignes (ex : n
+    plus grandes/petites valeurs d'une variable)
+-   `distinct()` : gérer des doublons ou connaître les modalités d'une
+    ou d'un groupe de variables
 -   `rename()` : renommer une variable (nouveau_nom=ancien_nom)
 -   `relocate()` : déplacer une variable (avec .after et .before)
--   `count()` : compter le nombre d'observation pour chaque/un croisement de modalités
+-   `count()` : compter le nombre d'observation pour chaque/un
+    croisement de modalités
 -   `pull()`: pour extraire un vecteur à partir d'un data.frame
--   `replace_na()` : remplacer toutes les valeurs manquantes NA par une valeur donnée ({tidyr})
+-   `replace_na()` : remplacer toutes les valeurs manquantes NA par une
+    valeur donnée ({tidyr})
 -   `drop_na()` : supprimer des lignes qui comportent des NA ({tidyr})
-
 
 ## Lecture ou écriture de fichiers (1/2)
 
-Version courte: le package {rio} permet avec une seule fonction d'importer
-ou exporter quasiment tout type de fichier (.csv, .xlsx, .ods, .rds, .sas7bdat, .parquet, etc.)
+Version courte: le package {rio} permet avec une seule fonction
+d'importer ou exporter quasiment tout type de fichier (.csv, .xlsx,
+.ods, .rds, .sas7bdat, .parquet, etc.)
 
 Syntaxe de base :
 
@@ -273,8 +416,9 @@ Syntaxe de base :
     `export(maTable,"V:/adresseMaTable/monFichierAExporter.xlsx")`
 
 {rio} est un package qui mobilise d'autres packages dédiés à certains
-types de fichier, (cf. [aide de rio](https://gesistsa.github.io/rio/) pour les connaître et spécifier
-certains paramètres) Ex: importer un seul onglet.
+types de fichier, (cf. [aide de rio](https://gesistsa.github.io/rio/)
+pour les connaître et spécifier certains paramètres) Ex: importer un
+seul onglet.
 
 -   `MaTable <- import("V:/adresseMaTable/monFichierAImporter.xlsx", sheet="monOnglet")`
     (paramètres de `readxl::read_excel()`)
@@ -284,23 +428,23 @@ certains paramètres) Ex: importer un seul onglet.
 L'alternative est de passer par les fonctions des packages dédiés à
 chaque type de fichier:
 
-| Type        | Lecture                                           | Ecriture                                                                      |
-|------------|--------------------------------|------------------------------|
-| Texte       | `reader::read_delim()`                            | `reader::write_delim()`                                                       |
-| RDS         | `readr::read_rds()`                                      | `readr::write_rds()`                                                          |
-| XLS         | les fonctions du package {readxl}                 | les fonctions du package {openxlsx}                                           |
-| SAS ou SPSS | `haven::read_sas()` et `haven::read_spss()`   | Exporter au format texte puis lecture dans SAS ou SPSS (sans objet désormais) |
-| ODS         | `readODS::read_ods()`                             | `readODS::write_ods()`                                                        |
-| Parquet     | Les packages `arrow` et `duckdb`                  | Le package `arrow`      
+| Type | Lecture | Ecriture |
+|----------------|-----------------------------|---------------------------|
+| Texte | `reader::read_delim()` | `reader::write_delim()` |
+| RDS | `readr::read_rds()` | `readr::write_rds()` |
+| XLS | les fonctions du package {readxl} | les fonctions du package {openxlsx} |
+| SAS ou SPSS | `haven::read_sas()` et `haven::read_spss()` | Exporter au format texte puis lecture dans SAS ou SPSS (sans objet désormais) |
+| ODS | `readODS::read_ods()` | `readODS::write_ods()` |
+| Parquet | Les packages `arrow` et `duckdb` | Le package `arrow` |
 
 ## Base de données avec R (avancé)
 
 -   R offre la possibilité d'effectuer des requêtes SQL sur des bases de
     données externes (il faut donc connaître la syntaxe SQL).
 
--   Des informations pour la connexion sont nécessaires :  
+-   Des informations pour la connexion sont nécessaires :
 
-`library(RPostgres)`  
+`library(RPostgres)`
 
 `cnx <- dbConnect(Postgres(), dbname = "sirene", port = 5432, host = "00.11.22.33", user = "nom_user", password = "mdp")`
 
@@ -311,9 +455,6 @@ chaque type de fichier:
 
 ## Exercices
 
-<br>
-<br>
-<br>
-<br>
+<br> <br> <br> <br>
 
 ![](img/exercices.png){fig-align="center"}
