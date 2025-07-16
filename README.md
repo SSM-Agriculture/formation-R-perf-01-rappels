@@ -6,7 +6,7 @@
 
 Support de présentation pour la formation R perfectionnement - module rappels
 
-Cette formation R perfectionnement est dispensée au [MASAF](https://agriculture.gouv.fr/)
+Cette formation R perfectionnement est dispensée au [SSM Agriculture](https://agriculture.gouv.fr/)
 
 ## Correction des exercices
 

@@ -5,7 +5,7 @@ date: today
 date-format: "DD/MM/YYYY"
 author: "SSP/DEMESIS"
 description: |
-  Support de formation R-perfectionnement : Module Rappels pour les utilisateurs de R au MASA
+  Support de formation R-perfectionnement : Module Rappels pour les utilisateurs de R au SSM Agriculture
 slide-tone: false # for blind readers
 chalkboard: false # press the B key to toggle chalkboard
 transition: slide
@@ -31,7 +31,7 @@ editor:
 
 Ce diaporama de formation a été rédigé dans le but d'être le support
 visuel des formations dispensées au
-[MASA](https://agreste.agriculture.gouv.fr/).
+[SSM Agriculture](https://agreste.agriculture.gouv.fr/).
 
 Ces formations s'adressent à des agents qui ont suivi [la formation R initiation][https://ssm-agriculture.github.io/formation-R-initiation/] ou qui sont familiers des outils de manipulation de données (dplyr).\
 
@@ -44,7 +44,7 @@ modules de cette formation sont ajustables suivants le choix des agents.
 ## Champ couvert par cette formation
 
 **Ce support couvre les rappels et compléments sur R et l'environnement
-du MASA.**
+du SSM Agriculture.**
 
 Pour information, les modules de la formation R-perfectionnement sont:
 

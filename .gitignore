@@ -6,3 +6,5 @@
 /.quarto/
 *.html
 formation-R-perf-Rappels_files/
+
+/.luarc.json

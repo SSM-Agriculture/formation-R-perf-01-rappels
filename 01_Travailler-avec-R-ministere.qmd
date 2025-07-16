@@ -18,7 +18,7 @@ Remplace SAS ou SPSS
 Logiciel IDE : Integrated Development Environment
 
 
-## Comment travailler avec R au MASA ?
+## Comment travailler avec R au SSM Agriculture ?
 
 Depuis la plate-forme **CERISE** :
 
