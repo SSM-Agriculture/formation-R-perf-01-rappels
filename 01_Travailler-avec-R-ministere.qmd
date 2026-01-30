@@ -78,4 +78,4 @@ Pour obtenir de l'aide sur une fonction :
 -   Ctrl + Shift + A : pour reformater le code (passe à la ligne, ajoute des espaces...)
 -   ​Ctrl + Alt + Shift + M : pour renommer en même temps plusieurs occurences du même terme
 -   Ctrl + Shift + R : pour créer des sections
--    Alt + Shift + K : ouvrir l'aide sur les raccourcis claviers
+-   Alt + Shift + K : ouvrir l'aide sur les raccourcis claviers
