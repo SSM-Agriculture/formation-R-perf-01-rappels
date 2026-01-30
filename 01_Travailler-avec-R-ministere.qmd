@@ -1,7 +1,6 @@
 # Travailler avec R au ministère {.backgroundTitre}
 
-
-## Présentation
+## Présentation de RStudio
 
 Logiciel de traitement de données et analyse statistique :
 
@@ -17,26 +16,26 @@ Remplace SAS ou SPSS
 
 Logiciel IDE : Integrated Development Environment
 
-
 ## Comment travailler avec R au SSM Agriculture ?
 
-Depuis la plate-forme **CERISE** :
+-   Depuis la plate-forme **CERISE** :
 
--   ⇒ PISTACHE : Pistache \> Traitements statistiques et Diffusion \> R \> Migration SPSS et SAS vers R \> Accès au WIKI Cerise - R \> Accéder à Cerise
+    -   via le lien suivant : <https://rstudio.agriculture.rie.gouv.fr>
+
+    <!-- -   via PISTACHE : Pistache \> Traitements statistiques et Diffusion \> R \> Migration SPSS et SAS vers R \> Accès au WIKI Cerise - R \> Accéder à Cerise -->
 
 ![](img/clipboard-travailler1.png)
 
-En **local sur son poste** <!-- , sans intervention de Pastel -->
+-   En **local sur son poste**
 
 ![](img/clipboard-preco.png){fig-align="center"}
 
-Existence d'une plate-forme CERISE de **Préproduction** :\
-<https://rstudio-pprd.agriculture.rie.gouv.fr>
+-   NB : existence d'une plate-forme CERISE de **Préproduction** :\
+    <https://rstudio-pprd.agriculture.rie.gouv.fr>
 
 ## Fenêtres dans RSTUDIO
 
 ![](img/clipboard-console.png){fig-align="center"}
-
 
 ## Organisation sous CERISE
 
@@ -52,7 +51,6 @@ Cerise est organisé en plusieurs répertoires :
 
 -   **04-Espace-Echanges** =\> stockage des fichiers de données à transmettre aux autres applications du SI CASSIS (par exemple Agreste) ainsi qu'aux SI des partenaires extérieurs
 
-
 ## Généralités sur R avec RStudio
 
 On utilise des packages (ensemble de fonctions) qu'il faut installer puis charger (sinon erreur!). Par exemple:
@@ -67,22 +65,17 @@ Pour obtenir de l'aide sur une fonction :
 
 <!-- Pour visualiser un tableau : `View()` -->
 
-Quelques raccourcis claviers usuels:
+**Quelques raccourcis claviers usuels:**
 
 -   Ctrl + Entrée : exécuter la ligne de code actuelle (curseur) ou une sélection
 -   Ctrl + Shift + C : mettre une ligne en commentaires
--   Ctrl + Shift + M : Écrire un pipe %\>% ou avec la nouvelle écriture \|\>
+-   Ctrl + Shift + M : Écrire un pipe '%\>%' ou avec la nouvelle écriture \|\>
 
-<!-- ## Organisation sous CERISE -->
+## Autres raccourcis claviers utiles :
 
-<!-- Cerise est organisé en plusieurs répertoires : -->
-
-<!-- -   **00-Espace-Personnel** =\> espaces personnels des agents, **accessible par l'agent uniquement** -->
-
-<!-- -   **01-Espace-de-Partage** =\> lieu de partage général entre les différents acteurs (ex: formations R) -->
-
-<!-- -   **02-Espace-de-Production** =\> plateforme de stockage des données brutes collectées, ainsi que des fichiers de données et programmes issus des traitements statistiques réalisés par l'équipe projet -->
-
-<!-- -   **03-Espace-de-Diffusion** =\> mise à disposition au sein du SSM des données issues des traitements statistiques réalisés en amont =\> Ces deux derniers espaces sont découpés par opérations statistiques -->
-
-<!-- -   **04-Espace-Echanges** =\> stockage des fichiers de données à transmettre aux autres applications du SI CASSIS (par exemple Agreste) ainsi qu'aux SI des partenaires extérieurs -->
+-   Alt + - (moins ou tiret du 6) : flèche d'affectation '\<-'
+-   Ctrl + I : bien indenter le code
+-   Ctrl + Shift + A : pour reformater le code (passe à la ligne, ajoute des espaces...)
+-   ​Ctrl + Alt + Shift + M : pour renommer en même temps plusieurs occurences du même terme
+-   Ctrl + Shift + R : pour créer des sections
+-    Alt + Shift + K : ouvrir l'aide sur les raccourcis claviers
