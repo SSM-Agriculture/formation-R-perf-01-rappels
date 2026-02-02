@@ -20,9 +20,7 @@ Logiciel IDE : Integrated Development Environment
 
 -   Depuis la plate-forme **CERISE** :
 
-    -   via le lien suivant : <https://rstudio.agriculture.rie.gouv.fr>
 
-    <!-- -   via PISTACHE : Pistache \> Traitements statistiques et Diffusion \> R \> Migration SPSS et SAS vers R \> Accès au WIKI Cerise - R \> Accéder à Cerise -->
 
 ![](img/clipboard-travailler1.png)
 
@@ -30,8 +28,6 @@ Logiciel IDE : Integrated Development Environment
 
 ![](img/clipboard-preco.png){fig-align="center"}
 
--   NB : existence d'une plate-forme CERISE de **Préproduction** :\
-    <https://rstudio-pprd.agriculture.rie.gouv.fr>
 
 ## Fenêtres dans RSTUDIO
 
