@@ -2,11 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
-
 /.quarto/
 *.html
 formation-R-perf-Rappels_files/
-
 /.luarc.json
-
 **/*.quarto_ipynb
+01_Travailler-avec-R-ministere.log
+01_Travailler-avec-R-ministere.tex
