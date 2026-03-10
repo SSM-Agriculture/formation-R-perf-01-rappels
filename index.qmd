@@ -37,7 +37,7 @@ Les formations R perfectionnement s'adressent à des agents qui ont suivi (la fo
 
 ## Avant-propos
 
-Les formations R perfectionnement sont données en présentiel. Elles sont composée d'un socle commun **de 2 jours** et de modules optionnels **d'une journée**. 
+Les formations R perfectionnement sont données en présentiel. Elles sont composées d'un socle commun **de 2 jours** et de modules optionnels **d'une journée**. 
 
 ::: callout-note
 ## Champ couvert par cette formation
