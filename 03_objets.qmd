@@ -25,7 +25,7 @@ editor:
 
 [Objet élémentaire de R, une dimension (beaucoup de fonctions sont vectorisées)]{.Terre_battue2}  
 
--   *NB : les colonnes (variables) de nos tableaux de données sont desvecteurs qui ont un nom (le nom de la variable)*
+-   *NB : les colonnes (variables) de nos tableaux de données sont des vecteurs qui ont un nom (le nom de la variable)*
 -   Ensemble de valeurs, appelées éléments, **de même nature** (nombres
     entiers ou décimaux, chaînes de caractères, booléens...). Si ce
     n'est pas le cas, R va convertir. On peut donner un nom à chaque
